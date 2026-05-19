@@ -109,7 +109,7 @@ export function initSubmitForm() {
 
         try {
             //Envia al backend
-            const response = await fetch("http://localhost:8080/api/rsvp", {
+            const response = await fetch("https://wedding-invitation-production-4c94.up.railway.app/api/rsvp", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -225,7 +225,7 @@ export function initSubmitForm() {
             };
 
             try {
-                const response = await fetch("http://localhost:8080/api/rsvp", {
+                const response = await fetch("https://wedding-invitation-production-4c94.up.railway.app/api/rsvp", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
