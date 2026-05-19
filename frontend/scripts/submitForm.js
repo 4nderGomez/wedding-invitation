@@ -126,7 +126,10 @@ export function initSubmitForm() {
             }
 
             if(response.ok) {
-                alert("Confirmación enviada correctamente ❤️");
+                showSuccessToast(
+                    "Confirmación enviada",
+                    "Gracias por confirmar tu asistencia."
+                );
                 localStorage.removeItem("rsvpDraft");
 
                 const decision = document.getElementById("attendanceDecision");
@@ -242,7 +245,10 @@ export function initSubmitForm() {
                 }
 
                 if (response.ok) {
-                    alert("Respuesta enviada correctamente. Lamentamos que no puedas asistir.");
+                    showSuccessToast(
+                        "Respuesta enviada correctamente.",
+                        "Lamentamos que no puedas asistir."
+                    );
 
                     declineForm.reset();
 
@@ -266,4 +272,24 @@ export function initSubmitForm() {
             }
         });
     }
+}
+
+function showSuccessToast(title, message) {
+    const toast = document.getElementById("successToast");
+    const titleEl = toast.querySelector("h3");
+    const messageEl = toast.querySelector("p");
+    const closeBtn = document.getElementById("closeSuccessToast");
+
+    titleEl.textContent = title;
+    messageEl.textContent = message;
+
+    toast.classList.add("active");
+
+    closeBtn.onclick = () => {
+        toast.classList.remove("active");
+    };
+
+    setTimeout(() => {
+        toast.classList.remove("active");
+    }, 3500);
 }
