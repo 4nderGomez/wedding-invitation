@@ -54,7 +54,7 @@ export function initSubmitForm() {
         });
 
         //Invitados extra
-        document.querySelectorAll("#guestsContainer .person-row").forEach(row => {
+        document.querySelectorAll("#guestsContainer .guest-card").forEach(row => {
             const inputs = row.querySelectorAll("input");
 
             const type = row.dataset.type || "adult";
