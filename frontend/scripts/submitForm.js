@@ -252,8 +252,16 @@ export function initSubmitForm() {
 
                     declineForm.reset();
 
+                    const decision = document.getElementById("attendanceDecision");
+                    const btn = document.getElementById("confirmDecisionBtn");
+
+                    decision.disabled = true;
+                    btn.disabled = true;
+
                     document.getElementById("formModal").classList.remove("active");
                     document.body.style.overflow = "auto";
+                    document.getElementById("declineSection").classList.add("hidden");
+                    document.getElementById("rsvp-decision").classList.remove("hidden");
                 } else {
                     if (typeof result === "object") {
                         const messages = Object.values(result).join("\n");
