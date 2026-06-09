@@ -138,11 +138,12 @@
 
 /* Animación track para galeria */
 @keyframes scrollGallery {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
-        transform: translateX(-50%);
+
+    to {
+        transform: translateX(calc(-1 * ((360px + 20px) * 6)));
     }
 }
 

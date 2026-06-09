@@ -55,6 +55,7 @@
     gap: 20px;
     width: max-content;
     animation: scrollGallery 48s linear infinite;
+    will-change: transform;
 }
 
 .gallery-track img {
