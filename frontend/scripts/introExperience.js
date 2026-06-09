@@ -6,7 +6,7 @@ export function initIntroExperience() {
 
     if (!intro || !enterBtn || !music) return;
 
-    music.volume = 0.4;
+    music.volume = 0.6;
     music.loop = true;
 
     let musicStarted = false;
