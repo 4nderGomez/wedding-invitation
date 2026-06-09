@@ -1,10 +1,9 @@
 export function initFloatingMenu() {
     const floatingMenu = document.getElementById("floatingMenu");
     const floatingMenuToggle = document.getElementById("floatingMenuToggle");
-    const floatingMenuPanel = document.getElementById("floatingMenuPanel");
     const menuLinks = document.querySelectorAll(".floating-menu-panel a");
 
-    if (!floatingMenu || !floatingMenuToggle || !floatingMenuPanel) return;
+    if (!floatingMenu || !floatingMenuToggle) return;
 
     function showFloatingMenu() {
         floatingMenu.classList.add("visible");
@@ -15,7 +14,9 @@ export function initFloatingMenu() {
         floatingMenuToggle.setAttribute("aria-label", "Abrir menú");
     }
 
-    function toggleFloatingMenu() {
+    function toggleFloatingMenu(event) {
+        event.stopPropagation();
+
         floatingMenu.classList.toggle("active");
 
         if (floatingMenu.classList.contains("active")) {
@@ -25,15 +26,10 @@ export function initFloatingMenu() {
         }
     }
 
-    floatingMenuToggle.addEventListener("click", (event) => {
-        event.stopPropagation();
-        toggleFloatingMenu();
-    });
+    floatingMenuToggle.addEventListener("click", toggleFloatingMenu);
 
     menuLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            closeFloatingMenu();
-        });
+        link.addEventListener("click", closeFloatingMenu);
     });
 
     document.addEventListener("click", (event) => {
@@ -48,7 +44,5 @@ export function initFloatingMenu() {
         }
     });
 
-    document.addEventListener("introExperienceStarted", () => {
-        showFloatingMenu();
-    });
+    document.addEventListener("introExperienceStarted", showFloatingMenu);
 }
