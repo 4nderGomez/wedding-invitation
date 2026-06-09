@@ -1,4 +1,4 @@
-export function initIntroExperience() { 
+export function initIntroExperience() {
     const intro = document.getElementById("introScreen");
     const enterBtn = document.getElementById("enterExperience");
     const music = document.getElementById("backgroundMusic");
@@ -14,6 +14,7 @@ export function initIntroExperience() {
 
     function showMusicButton() {
         if (!musicToggle) return;
+
         musicToggle.classList.add("visible");
     }
 
@@ -32,17 +33,24 @@ export function initIntroExperience() {
     async function playMusic() {
         try {
             await music.play();
+
             musicStarted = true;
             userWantsMusic = true;
+
             updateMusicButton();
         } catch (error) {
             console.log("El navegador bloqueó la música");
         }
     }
 
-    function pauseMusic() {
+    function pauseMusicByUser() {
         music.pause();
         userWantsMusic = false;
+        updateMusicButton();
+    }
+
+    function pauseMusicTemporarily() {
+        music.pause();
         updateMusicButton();
     }
 
@@ -61,18 +69,29 @@ export function initIntroExperience() {
             if (music.paused) {
                 await playMusic();
             } else {
-                pauseMusic();
+                pauseMusicByUser();
             }
         });
     }
 
     document.addEventListener("visibilitychange", () => {
         if (document.hidden) {
-            music.pause();
-            updateMusicButton();
+            pauseMusicTemporarily();
             return;
         }
 
+        if (musicStarted && userWantsMusic) {
+            music.play()
+                .then(updateMusicButton)
+                .catch(() => {});
+        }
+    });
+
+    window.addEventListener("blur", () => {
+        pauseMusicTemporarily();
+    });
+
+    window.addEventListener("focus", () => {
         if (musicStarted && userWantsMusic) {
             music.play()
                 .then(updateMusicButton)
