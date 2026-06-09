@@ -49,18 +49,6 @@
     z-index: -1;
 }
 
-.countdown-family-name {
-    font-family: 'Parisienne', cursive;
-    font-size: 4.8rem;
-    font-weight: 400;
-    color: var(--blue-primary);
-    margin-top: 1px;
-    margin-bottom: 12px;
-    line-height: 1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    animation: fadeUp 1.4s ease forwards;
-}
-
 #countdown .wedding-phrase::after {
     content: "";
     display: block;
@@ -80,25 +68,31 @@
     position: relative;
     z-index: 2;
     max-width: 760px;
-    margin: 0 auto 48px;
+    margin: 0 auto 26px;
     text-align: center;
     font-family: var(--font-romantic);
     font-size: clamp(1.1rem, 2vw, 1.45rem);
     font-style: italic;
-    line-height: 1.8;
+    line-height: 1.45;
     letter-spacing: 0.3px;
     color: var(--blue-primary);
     animation: fadeUp 1.4s ease forwards;
 }
 
-.count-invitation span {
-    display: inline-block;
-    margin-top: 4px;
-    font-family: var(--font-title);
-    font-style: normal;
-    font-weight: 700;
+.count-invitation p {
+    margin: 0;
+}
+
+.countdown-family-name {
+    font-family: var(--font-script);
+    font-size: clamp(3.4rem, 6vw, 5rem);
+    font-weight: 400;
     color: var(--blue-primary);
-    letter-spacing: 1px;
+    margin: 6px 0 8px;
+    line-height: 0.95;
+    letter-spacing: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    animation: fadeUp 1.4s ease forwards;
 }
 
 .count-invitation::after {
@@ -106,7 +100,7 @@
     display: block;
     width: 120px;
     height: 1px;
-    margin: 22px auto 0;
+    margin: 14px auto 0;
     background: linear-gradient(
         to right,
         transparent,
@@ -191,223 +185,62 @@
 
 /* Tablets grandes */
 @media (max-width: 1024px) {
-    #countdown {
-        padding: 100px 18px 80px;
+    .count-invitation {
+        margin-bottom: 24px;
+        font-size: 1.18rem;
+        line-height: 1.45;
     }
 
-    #countdown::before,
-    #countdown::after {
-        width: 85px;
-        height: 160px;
-        opacity: 0.36;
-    }
-
-    #countdown::before {
-        top: 70px;
-        left: 35px;
-    }
-
-    #countdown::after {
-        right: 35px;
-        bottom: 20px;
-    }
-
-    .count-title {
-        font-size: 1.65rem;
-        letter-spacing: 7px;
-        margin-bottom: 36px;
-    }
-
-    #timer {
-        gap: 18px;
-    }
-
-    #timer div {
-        width: 110px;
-        min-width: 110px;
-        padding: 20px 14px;
-    }
-
-    #timer span {
-        font-size: 2.55rem;
-    }
-
-    .wedding-phrase {
-        font-size: 2.15rem;
-        max-width: 650px;
-    }
-}
-
-/* Tablets pequeñas */
-@media (max-width: 768px) {
-    #countdown {
-        padding: 85px 16px 70px;
-    }
-
-    #countdown::before,
-    #countdown::after {
-        width: 70px;
-        height: 135px;
-        opacity: 0.28;
-    }
-
-    #countdown::before {
-        top: 45px;
-        left: 8px;
-    }
-
-    #countdown::after {
-        right: 8px;
-        bottom: 18px;
-    }
-
-    .count-title {
-        font-size: 1.45rem;
-        letter-spacing: 5px;
-        margin-bottom: 30px;
-    }
-
-    #timer {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(105px, 1fr));
-        gap: 16px;
-        max-width: 330px;
-        margin: 0 auto;
-    }
-
-    #timer div {
-        width: 100%;
-        min-width: 0;
-        padding: 20px 12px;
-        border-radius: 18px;
-    }
-
-    #timer span {
-        font-size: 2.35rem;
-    }
-
-    #timer p {
-        font-size: 0.7rem;
-        letter-spacing: 2px;
-    }
-
-    .wedding-phrase {
-        margin-top: 28px;
-        font-size: 1.9rem;
-        line-height: 1.25;
-        max-width: 520px;
-    }
-}
-
-/* Celulares */
-@media (max-width: 480px) {
-    #countdown {
-        padding: 72px 14px 62px;
-    }
-
-    #countdown::before,
-    #countdown::after {
-        width: 58px;
-        height: 110px;
-        opacity: 0.22;
-    }
-
-    #countdown::before {
-        top: 35px;
-        left: -8px;
-    }
-
-    #countdown::after {
-        right: -8px;
-        bottom: 12px;
-    }
-
-    .count-title {
-        font-size: 1.25rem;
-        letter-spacing: 4px;
-        margin-bottom: 26px;
-    }
-
-    #timer {
-        grid-template-columns: repeat(2, minmax(90px, 1fr));
-        gap: 12px;
-        max-width: 280px;
-    }
-
-    #timer div {
-        padding: 18px 10px;
-        border-radius: 16px;
-        animation: none;
-    }
-
-    #timer div:hover {
-        transform: none;
-    }
-
-    #timer span {
-        font-size: 2rem;
-    }
-
-    #timer p {
-        font-size: 0.65rem;
-        letter-spacing: 1.6px;
-        margin-top: 8px;
-    }
-
-    .wedding-phrase {
-        font-size: 1.65rem;
-        line-height: 1.25;
-        max-width: 320px;
-    }
-}
-
-/* Celulares muy pequeños */
-@media (max-width: 360px) {
-    #countdown {
-        padding: 64px 10px 56px;
-    }
-
-    .count-title {
-        font-size: 1.1rem;
-        letter-spacing: 3px;
-    }
-
-    #timer {
-        max-width: 250px;
-        gap: 10px;
-    }
-
-    #timer div {
-        padding: 16px 8px;
-    }
-
-    #timer span {
-        font-size: 1.8rem;
-    }
-
-    .wedding-phrase {
-        font-size: 1.45rem;
+    .countdown-family-name {
+        font-size: clamp(3.1rem, 6vw, 4.3rem);
+        margin: 5px 0 8px;
     }
 }
 
 @media (max-width: 768px) {
-
     .count-invitation {
         max-width: 92%;
+        margin: 0 auto 24px;
+        font-size: 1rem;
+        line-height: 1.45;
+    }
 
-        margin: -4px auto 34px;
+    .countdown-family-name {
+        font-size: clamp(2.8rem, 10vw, 3.8rem);
+        margin: 4px 0 7px;
+    }
 
-        font-size: 0.92rem;
-        line-height: 1.7;
+    .count-invitation::after {
+        margin-top: 12px;
+        width: 105px;
     }
 }
 
 @media (max-width: 480px) {
-
     .count-invitation {
-        font-size: 0.85rem;
-        line-height: 1.6;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 22px;
+    }
 
-        margin-bottom: 28px;
+    .countdown-family-name {
+        font-size: clamp(2.45rem, 13vw, 3.25rem);
+        margin: 3px 0 6px;
+    }
+
+    .count-invitation::after {
+        width: 90px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .count-invitation {
+        font-size: 0.84rem;
+        margin-bottom: 20px;
+    }
+
+    .countdown-family-name {
+        font-size: 2.3rem;
     }
 }
