@@ -34,9 +34,65 @@
     color: var(--blue-primary);
 }
 
-.location-card {
-    max-width: 420px;
+.locations-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 420px) 70px minmax(0, 420px);
+    justify-content: center;
+    align-items: start;
+    gap: 18px;
+    max-width: 980px;
     margin: 0 auto;
+}
+
+.location-card {
+    width: 100%;
+    max-width: 420px;
+    min-height: 360px;
+    margin: 0 auto;
+}
+
+.location-card-left {
+    padding: 18px 16px 22px;
+    border-radius: 30px;
+    border: 1px solid rgba(103, 146, 185, 0.45);
+    background: rgba(221, 237, 249, 0.36);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+}
+
+.location-card-right {
+    padding: 18px 16px 22px;
+}
+
+.locations-divider {
+    position: relative;
+    width: 70px;
+    min-height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.locations-divider::before {
+    content: "";
+    width: 2px;
+    height: 82%;
+    border-radius: 999px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--blue-secondary),
+        transparent
+    );
+    opacity: 0.75;
+}
+
+.locations-divider span {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--blue-accent);
+    box-shadow: 0 0 0 8px rgba(103, 146, 185, 0.12);
 }
 
 .location-info {
@@ -254,6 +310,21 @@
         right: 45px;
     }
 
+    .locations-layout {
+        grid-template-columns: minmax(0, 390px) 54px minmax(0, 390px);
+        gap: 14px;
+        max-width: 900px;
+    }
+
+    .location-card {
+        min-height: 345px;
+    }
+
+    .locations-divider {
+        width: 54px;
+        min-height: 315px;
+    }
+
     .event-bottom-grid {
         gap: 24px;
     }
@@ -273,6 +344,45 @@
 
 /* Tablets pequeñas */
 @media (max-width: 850px) {
+    .locations-layout {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 22px;
+    }
+
+    .location-card {
+        max-width: 440px;
+        min-height: auto;
+    }
+
+    .location-card-left,
+    .location-card-right {
+        padding: 16px 14px 22px;
+    }
+
+    .locations-divider {
+        width: 100%;
+        min-height: 34px;
+        height: 34px;
+    }
+
+    .locations-divider::before {
+        width: 78%;
+        height: 2px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            var(--blue-secondary),
+            transparent
+        );
+    }
+
+    .locations-divider span {
+        width: 11px;
+        height: 11px;
+        box-shadow: 0 0 0 7px rgba(103, 146, 185, 0.12);
+    }
+
     .event-bottom-grid {
         grid-template-columns: 1fr;
         max-width: 560px;
@@ -304,7 +414,7 @@
     }
 }
 
-/* Celulares */
+/* Celulares grandes */
 @media (max-width: 600px) {
     #eventInfo {
         padding: 42px 14px 65px;
@@ -329,6 +439,17 @@
         font-size: clamp(2rem, 9vw, 2.6rem);
     }
 
+    .locations-layout {
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    .location-card-left,
+    .location-card-right {
+        padding: 14px 12px 20px;
+        border-radius: 24px;
+    }
+
     .location-info {
         padding: 10px 12px 4px;
     }
@@ -348,8 +469,14 @@
         margin-top: 22px;
     }
 
-    .overlay-text {
-        font-size: 0.95rem;
+    .location-hint {
+        margin-top: 8px;
+        font-size: 0.74rem;
+    }
+
+    .locations-divider {
+        min-height: 28px;
+        height: 28px;
     }
 
     .event-flower {
@@ -408,9 +535,103 @@
         font-size: 0.92rem;
         line-height: 1.65;
     }
+
+    .tap-hint {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 0.78rem;
+    }
+
+    .photoGuest-image img,
+    .upload-link img {
+        margin-bottom: 0;
+    }
 }
 
-/* Celulares muy pequeños */
+/* Celulares normales */
+@media (max-width: 480px) {
+    #eventInfo {
+        padding: 38px 12px 60px;
+    }
+
+    .eventInfo-card {
+        padding: 40px 18px 42px;
+        border-radius: 28px;
+    }
+
+    .event-location h2 {
+        font-size: 2.15rem;
+        margin-bottom: 24px;
+    }
+
+    .locations-layout {
+        gap: 19px;
+    }
+
+    .location-card-left,
+    .location-card-right {
+        padding: 13px 11px 19px;
+        border-radius: 23px;
+    }
+
+    .location-info h3 {
+        font-size: 1.08rem;
+    }
+
+    .location-info h3::after {
+        width: 68px;
+        margin-top: 5px;
+    }
+
+    .place,
+    .time {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .location-hint {
+        font-size: 0.72rem;
+        opacity: 0.9;
+    }
+
+    .location-image {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+    }
+
+    .locations-divider {
+        min-height: 26px;
+        height: 26px;
+    }
+
+    .locations-divider::before {
+        width: 74%;
+    }
+
+    .tap-hint {
+        font-size: 0.74rem;
+        opacity: 0.85;
+    }
+
+    .event-mini-card {
+        padding: 30px 18px;
+        border-radius: 23px;
+    }
+
+    .event-mini-card h2 {
+        font-size: 2.15rem;
+    }
+
+    .photoGuest-text,
+    .upload-content p {
+        padding: 16px;
+        font-size: 0.9rem;
+        line-height: 1.62;
+    }
+}
+
+/* Celulares pequeños */
 @media (max-width: 390px) {
     #eventInfo {
         padding: 36px 10px 58px;
@@ -430,13 +651,42 @@
         font-size: 2rem;
     }
 
+    .locations-layout {
+        gap: 18px;
+    }
+
+    .location-card-left,
+    .location-card-right {
+        padding: 12px 10px 18px;
+        border-radius: 22px;
+    }
+
+    .location-info {
+        padding: 8px 8px 4px;
+    }
+
     .location-info h3 {
         font-size: 1.05rem;
+    }
+
+    .place,
+    .time {
+        font-size: 0.86rem;
     }
 
     .location-image {
         width: 125px;
         height: 125px;
+    }
+
+    .locations-divider {
+        min-height: 24px;
+        height: 24px;
+    }
+
+    .locations-divider span {
+        width: 9px;
+        height: 9px;
     }
 
     .event-mini-card {
@@ -459,38 +709,195 @@
     }
 }
 
-@media (max-width: 768px) {
-    .tap-hint {
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 0.78rem;
+/* Galaxy Fold, plegables angostos y celulares muy pequeños */
+@media (max-width: 340px) {
+    #eventInfo {
+        padding: 32px 8px 52px;
+    }
+
+    .eventInfo-card {
+        padding: 34px 12px 36px;
+        border-radius: 24px;
+    }
+
+    .event-location {
+        margin-bottom: 30px;
+    }
+
+    .event-location h2 {
+        font-size: 1.85rem;
+        margin-bottom: 22px;
+    }
+
+    .event-flower {
+        width: 76px;
+        opacity: 0.2;
+    }
+
+    .event-flower-left {
+        top: 30px;
+        left: -24px;
+    }
+
+    .event-flower-right {
+        top: 30px;
+        right: -24px;
+    }
+
+    .locations-layout {
+        gap: 16px;
+    }
+
+    .location-card-left,
+    .location-card-right {
+        padding: 10px 8px 16px;
+        border-radius: 20px;
+    }
+
+    .location-info {
+        padding: 7px 6px 3px;
+    }
+
+    .location-info h3 {
+        font-size: 0.98rem;
+        margin-bottom: 7px;
+    }
+
+    .location-info h3::after {
+        width: 58px;
+        height: 2px;
+        margin-top: 5px;
+    }
+
+    .place,
+    .time {
+        font-size: 0.8rem;
+        line-height: 1.42;
+    }
+
+    .location-hint {
+        font-size: 0.68rem;
+        margin-top: 7px;
+    }
+
+    .location-image {
+        width: 112px;
+        height: 112px;
+        margin-top: 18px;
+    }
+
+    .locations-divider {
+        min-height: 22px;
+        height: 22px;
+    }
+
+    .locations-divider::before {
+        width: 70%;
+    }
+
+    .locations-divider span {
+        width: 8px;
+        height: 8px;
+        box-shadow: 0 0 0 6px rgba(103, 146, 185, 0.12);
+    }
+
+    .event-bottom-grid {
+        gap: 18px;
+    }
+
+    .event-mini-card {
+        padding: 24px 12px;
+        border-radius: 21px;
+    }
+
+    .event-mini-card h2 {
+        font-size: 1.75rem;
+        margin-bottom: 18px;
+    }
+
+    .photoGuest-content,
+    .upload-content {
+        gap: 16px;
     }
 
     .photoGuest-image img,
     .upload-link img {
-        margin-bottom: 0;
+        width: min(100%, 155px);
     }
-}
 
-@media (max-width: 480px) {
+    .photoGuest-text,
+    .upload-content p {
+        padding: 14px;
+        font-size: 0.82rem;
+        line-height: 1.55;
+    }
+
     .tap-hint {
-        font-size: 0.74rem;
-        opacity: 0.85;
+        font-size: 0.7rem;
     }
 }
 
-@media (max-width: 768px) {
+/* Galaxy Fold cerrado y pantallas extremadamente angostas */
+@media (max-width: 300px) {
+    #eventInfo {
+        padding: 28px 6px 48px;
+    }
 
-    .location-hint {
-        margin-top: 8px;
+    .eventInfo-card {
+        padding: 30px 10px 34px;
+        border-radius: 22px;
+    }
+
+    .event-location h2 {
+        font-size: 1.7rem;
+    }
+
+    .locations-layout {
+        gap: 14px;
+    }
+
+    .location-card-left,
+    .location-card-right {
+        padding: 9px 7px 15px;
+        border-radius: 18px;
+    }
+
+    .location-info h3 {
+        font-size: 0.9rem;
+    }
+
+    .place,
+    .time {
         font-size: 0.74rem;
     }
-}
-
-@media (max-width: 480px) {
 
     .location-hint {
-        font-size: 0.72rem;
-        opacity: 0.9;
+        font-size: 0.64rem;
+    }
+
+    .location-image {
+        width: 100px;
+        height: 100px;
+        margin-top: 16px;
+    }
+
+    .event-mini-card {
+        padding: 22px 10px;
+    }
+
+    .event-mini-card h2 {
+        font-size: 1.55rem;
+    }
+
+    .photoGuest-image img,
+    .upload-link img {
+        width: min(100%, 140px);
+    }
+
+    .photoGuest-text,
+    .upload-content p {
+        padding: 12px;
+        font-size: 0.78rem;
+        line-height: 1.5;
     }
 }
