@@ -299,6 +299,36 @@
     width: 100%;
 }
 
+.google-calendar-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+    border: 1px solid rgba(36, 59, 90, 0.22);
+
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    color: var(--blue-primary);
+    background: rgba(255, 255, 255, 0.78);
+
+    box-shadow: 0 10px 22px rgba(36, 59, 90, 0.08);
+    transition: 0.3s ease;
+}
+
+.google-calendar-btn:hover {
+    background: rgba(221, 237, 249, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(36, 59, 90, 0.14);
+}
+
 /* Tablets */
 @media (max-width: 768px) {
     #rsvp {
