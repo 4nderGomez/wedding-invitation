@@ -49,6 +49,16 @@
     z-index: -1;
 }
 
+.countdown-family-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--blue-primary);
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 #countdown .wedding-phrase::after {
     content: "";
     display: block;
