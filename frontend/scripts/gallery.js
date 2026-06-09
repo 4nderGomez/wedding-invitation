@@ -14,9 +14,8 @@ export function initGalleryModal() {
 
     if (!images.length || !modal || !modalImg || !overlay) return;
 
-    let currentImageIndex = 0;
-
     const originalImages = Array.from(images).slice(0, 6);
+    let currentImageIndex = 0;
 
     function openModal(index) {
         currentImageIndex = index % originalImages.length;
@@ -72,18 +71,52 @@ export function initGalleryModal() {
     }
 
     if (galleryViewport && galleryPrevButton && galleryNextButton) {
+        const imageMovement = 380;
+
+        function getHalfScrollWidth() {
+            return galleryViewport.scrollWidth / 2;
+        }
+
+        function normalizeGalleryScroll() {
+            const halfScrollWidth = getHalfScrollWidth();
+
+            if (galleryViewport.scrollLeft >= halfScrollWidth) {
+                galleryViewport.scrollLeft = galleryViewport.scrollLeft - halfScrollWidth;
+            }
+
+            if (galleryViewport.scrollLeft <= 0) {
+                galleryViewport.scrollLeft = galleryViewport.scrollLeft + halfScrollWidth;
+            }
+        }
+
         galleryPrevButton.addEventListener("click", () => {
+            normalizeGalleryScroll();
+
             galleryViewport.scrollBy({
-                left: -380,
+                left: -imageMovement,
                 behavior: "smooth"
             });
+
+            setTimeout(normalizeGalleryScroll, 450);
         });
 
         galleryNextButton.addEventListener("click", () => {
+            normalizeGalleryScroll();
+
             galleryViewport.scrollBy({
-                left: 380,
+                left: imageMovement,
                 behavior: "smooth"
             });
+
+            setTimeout(normalizeGalleryScroll, 450);
+        });
+
+        galleryViewport.addEventListener("scroll", () => {
+            window.clearTimeout(galleryViewport.scrollTimer);
+
+            galleryViewport.scrollTimer = window.setTimeout(() => {
+                normalizeGalleryScroll();
+            }, 120);
         });
     }
 
