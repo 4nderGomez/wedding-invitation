@@ -1,5 +1,5 @@
 #gallery {
-    padding: 75px 0 65px;
+    padding: 75px clamp(18px, 3vw, 48px) 65px;
     text-align: center;
     background: var(--blue-grey);
     overflow: hidden;
@@ -30,14 +30,24 @@
     left: 50%;
     bottom: 20px;
     transform: translateX(-50%);
-
     width: 12px;
     height: 12px;
     border-radius: 50%;
-
     background: var(--blue-accent);
     opacity: 0.65;
     z-index: 4;
+}
+
+.gallery-viewport {
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 0 8px 30px;
+}
+
+.gallery-viewport::-webkit-scrollbar {
+    display: none;
 }
 
 .gallery-track {
@@ -64,6 +74,43 @@
     filter: brightness(1.04);
 }
 
+/* Flechas del carrusel */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--blue-primary);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 12px 28px rgba(36, 59, 90, 0.18);
+    cursor: pointer;
+    z-index: 20;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-arrow:hover {
+    transform: translateY(-50%) scale(1.08);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 16px 36px rgba(36, 59, 90, 0.24);
+}
+
+.gallery-arrow-left {
+    left: 10px;
+}
+
+.gallery-arrow-right {
+    right: 10px;
+}
+
+/* Modal */
 .image-modal {
     position: fixed;
     inset: 0;
@@ -91,12 +138,73 @@
     border-radius: 20px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
     animation: zoomIn 0.3s ease;
+    z-index: 2;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 26px;
+    right: 32px;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--blue-primary);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.image-modal-close:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.image-modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.7rem;
+    line-height: 1;
+    color: var(--blue-primary);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.image-modal-arrow:hover {
+    transform: translateY(-50%) scale(1.08);
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.image-modal-arrow-left {
+    left: 7%;
+}
+
+.image-modal-arrow-right {
+    right: 7%;
 }
 
 /* Tablets grandes */
 @media (max-width: 1024px) {
     #gallery {
-        padding: 65px 0 60px;
+        padding: 65px clamp(16px, 3vw, 34px) 60px;
     }
 
     #gallery h2 {
@@ -123,12 +231,20 @@
         max-width: 82%;
         max-height: 82%;
     }
+
+    .image-modal-arrow-left {
+        left: 4%;
+    }
+
+    .image-modal-arrow-right {
+        right: 4%;
+    }
 }
 
 /* Tablets pequeñas */
 @media (max-width: 768px) {
     #gallery {
-        padding: 58px 0 52px;
+        padding: 58px 14px 52px;
     }
 
     #gallery h2 {
@@ -157,17 +273,53 @@
         bottom: 12px;
     }
 
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+    }
+
+    .gallery-arrow-left {
+        left: 4px;
+    }
+
+    .gallery-arrow-right {
+        right: 4px;
+    }
+
     .image-modal img {
         max-width: 88%;
         max-height: 78%;
         border-radius: 16px;
+    }
+
+    .image-modal-close {
+        top: 18px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+        font-size: 2rem;
+    }
+
+    .image-modal-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 2.2rem;
+    }
+
+    .image-modal-arrow-left {
+        left: 14px;
+    }
+
+    .image-modal-arrow-right {
+        right: 14px;
     }
 }
 
 /* Celulares */
 @media (max-width: 480px) {
     #gallery {
-        padding: 48px 0 45px;
+        padding: 48px 10px 45px;
     }
 
     #gallery h2 {
@@ -199,6 +351,21 @@
         opacity: 0.45;
     }
 
+    .gallery-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 1.8rem;
+        background: rgba(255, 255, 255, 0.72);
+    }
+
+    .gallery-arrow-left {
+        left: 2px;
+    }
+
+    .gallery-arrow-right {
+        right: 2px;
+    }
+
     .image-modal-overlay {
         backdrop-filter: blur(6px);
     }
@@ -208,12 +375,34 @@
         max-height: 72%;
         border-radius: 14px;
     }
+
+    .image-modal-close {
+        top: 14px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.9rem;
+    }
+
+    .image-modal-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 2rem;
+    }
+
+    .image-modal-arrow-left {
+        left: 10px;
+    }
+
+    .image-modal-arrow-right {
+        right: 10px;
+    }
 }
 
 /* Celulares pequeños */
 @media (max-width: 360px) {
     #gallery {
-        padding: 42px 0 40px;
+        padding: 42px 8px 40px;
     }
 
     #gallery h2 {
@@ -233,5 +422,15 @@
     .image-modal img {
         max-width: 94%;
         border-radius: 12px;
+    }
+
+    .gallery-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .image-modal-arrow {
+        width: 36px;
+        height: 36px;
     }
 }

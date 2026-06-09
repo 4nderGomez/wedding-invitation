@@ -130,25 +130,38 @@
         <!-- Fotos de los novios -->
         <section id="gallery">
             <h2>Fotos</h2>
+
             <div class="gallery-wrapper">
-                <div class="gallery-track">
-                    
-                    <img src="assets/images/gallery/1.jpeg" alt="">
-                    <img src="assets/images/gallery/2.jpeg" alt="">
-                    <img src="assets/images/gallery/3.jpeg" alt="">
-                    <img src="assets/images/gallery/4.jpeg" alt="">
-                    <img src="assets/images/gallery/5.jpeg" alt="">
-                    <img src="assets/images/gallery/6.jpeg" alt="">
 
-                    <!-- duplicadas -->
-                    <img src="assets/images/gallery/1.jpeg" alt="">
-                    <img src="assets/images/gallery/2.jpeg" alt="">
-                    <img src="assets/images/gallery/3.jpeg" alt="">
-                    <img src="assets/images/gallery/4.jpeg" alt="">
-                    <img src="assets/images/gallery/5.jpeg" alt="">
-                    <img src="assets/images/gallery/6.jpeg" alt="">
+                <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Ver fotos anteriores">
+                    ‹
+                </button>
 
+                <div class="gallery-viewport">
+                    <div class="gallery-track">
+
+                        <img src="assets/images/gallery/1.jpeg" alt="">
+                        <img src="assets/images/gallery/2.jpeg" alt="">
+                        <img src="assets/images/gallery/3.jpeg" alt="">
+                        <img src="assets/images/gallery/4.jpeg" alt="">
+                        <img src="assets/images/gallery/5.jpeg" alt="">
+                        <img src="assets/images/gallery/6.jpeg" alt="">
+
+                        <!-- duplicadas -->
+                        <img src="assets/images/gallery/1.jpeg" alt="">
+                        <img src="assets/images/gallery/2.jpeg" alt="">
+                        <img src="assets/images/gallery/3.jpeg" alt="">
+                        <img src="assets/images/gallery/4.jpeg" alt="">
+                        <img src="assets/images/gallery/5.jpeg" alt="">
+                        <img src="assets/images/gallery/6.jpeg" alt="">
+
+                    </div>
                 </div>
+
+                <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Ver siguientes fotos">
+                    ›
+                </button>
+
             </div>
         </section>
 
@@ -529,6 +542,24 @@
             <p>Gracias por confirmar tu asistencia.</p>
             <button id="closeSuccessToast">Aceptar</button>
         </div>
+    </div>
+
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-overlay"></div>
+
+        <button class="image-modal-close" type="button" aria-label="Cerrar imagen">
+            ×
+        </button>
+
+        <button class="image-modal-arrow image-modal-arrow-left" type="button" aria-label="Imagen anterior">
+            ‹
+        </button>
+
+        <img id="modalImage" src="" alt="Foto ampliada">
+
+        <button class="image-modal-arrow image-modal-arrow-right" type="button" aria-label="Imagen siguiente">
+            ›
+        </button>
     </div>
 </body>
 </html>
