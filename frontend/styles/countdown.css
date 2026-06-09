@@ -185,62 +185,496 @@
 
 /* Tablets grandes */
 @media (max-width: 1024px) {
+    #countdown {
+        padding: 105px 18px 82px;
+    }
+
+    #countdown::before,
+    #countdown::after {
+        width: 86px;
+        height: 165px;
+        opacity: 0.38;
+    }
+
+    #countdown::before {
+        top: 78px;
+        left: 38px;
+    }
+
+    #countdown::after {
+        right: 38px;
+        bottom: 22px;
+    }
+
+    #countdown .count-title::before {
+        width: 240px;
+        height: 240px;
+        top: -75px;
+        filter: blur(40px);
+    }
+
     .count-invitation {
+        max-width: 680px;
         margin-bottom: 24px;
-        font-size: 1.18rem;
+        font-size: 1.16rem;
         line-height: 1.45;
     }
 
     .countdown-family-name {
         font-size: clamp(3.1rem, 6vw, 4.3rem);
         margin: 5px 0 8px;
+        line-height: 0.95;
+    }
+
+    #timer {
+        gap: 18px;
+    }
+
+    #timer div {
+        width: 132px;
+        min-width: 132px;
+        padding: 24px 18px;
+        border-radius: 22px;
+    }
+
+    #timer span {
+        font-size: 3.5rem;
+    }
+
+    #timer p {
+        font-size: 0.78rem;
+        letter-spacing: 2.5px;
+        margin-top: 12px;
+    }
+
+    .wedding-phrase {
+        margin-top: 28px;
+        font-size: 2.15rem;
+        max-width: 680px;
     }
 }
 
+/* Tablets pequeñas */
 @media (max-width: 768px) {
+    #countdown {
+        padding: 88px 16px 72px;
+    }
+
+    #countdown::before,
+    #countdown::after {
+        width: 72px;
+        height: 135px;
+        opacity: 0.3;
+    }
+
+    #countdown::before {
+        top: 58px;
+        left: 18px;
+    }
+
+    #countdown::after {
+        right: 18px;
+        bottom: 18px;
+    }
+
+    #countdown .count-title::before {
+        width: 210px;
+        height: 210px;
+        top: -68px;
+        filter: blur(36px);
+    }
+
     .count-invitation {
         max-width: 92%;
-        margin: 0 auto 24px;
+        margin: 0 auto 22px;
         font-size: 1rem;
         line-height: 1.45;
+        letter-spacing: 0.2px;
     }
 
     .countdown-family-name {
         font-size: clamp(2.8rem, 10vw, 3.8rem);
         margin: 4px 0 7px;
+        line-height: 0.95;
     }
 
     .count-invitation::after {
-        margin-top: 12px;
         width: 105px;
+        margin-top: 12px;
+    }
+
+    #timer {
+        max-width: 520px;
+        margin: 0 auto;
+        gap: 16px;
+    }
+
+    #timer div {
+        width: 118px;
+        min-width: 118px;
+        padding: 22px 15px;
+        border-radius: 20px;
+    }
+
+    #timer span {
+        font-size: 3.05rem;
+    }
+
+    #timer p {
+        font-size: 0.72rem;
+        letter-spacing: 2.2px;
+        margin-top: 11px;
+    }
+
+    .wedding-phrase {
+        max-width: 92%;
+        margin-top: 26px;
+        font-size: 1.95rem;
+        line-height: 1.1;
+    }
+
+    #countdown .wedding-phrase::after {
+        width: 80px;
+        margin-top: 18px;
     }
 }
 
-@media (max-width: 480px) {
+/* Celulares grandes */
+@media (max-width: 600px) {
+    #countdown {
+        padding: 76px 14px 64px;
+    }
+
+    #countdown::before,
+    #countdown::after {
+        width: 58px;
+        height: 112px;
+        opacity: 0.24;
+    }
+
+    #countdown::before {
+        top: 42px;
+        left: 6px;
+    }
+
+    #countdown::after {
+        right: 6px;
+        bottom: 14px;
+    }
+
     .count-invitation {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        margin-bottom: 22px;
+        max-width: 94%;
+        margin-bottom: 20px;
+        font-size: 0.94rem;
+        line-height: 1.42;
     }
 
     .countdown-family-name {
-        font-size: clamp(2.45rem, 13vw, 3.25rem);
+        font-size: clamp(2.55rem, 12vw, 3.35rem);
         margin: 3px 0 6px;
     }
 
     .count-invitation::after {
-        width: 90px;
+        width: 92px;
         margin-top: 10px;
+    }
+
+    #timer {
+        max-width: 390px;
+        gap: 12px;
+    }
+
+    #timer div {
+        width: calc(50% - 8px);
+        min-width: 0;
+        max-width: 145px;
+        padding: 20px 12px;
+        border-radius: 18px;
+    }
+
+    #timer span {
+        font-size: 2.75rem;
+    }
+
+    #timer p {
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+        margin-top: 10px;
+    }
+
+    .wedding-phrase {
+        margin-top: 24px;
+        font-size: 1.75rem;
+        line-height: 1.12;
     }
 }
 
-@media (max-width: 360px) {
+/* Celulares normales */
+@media (max-width: 480px) {
+    #countdown {
+        padding: 68px 12px 58px;
+    }
+
+    #countdown::before,
+    #countdown::after {
+        width: 48px;
+        height: 95px;
+        opacity: 0.2;
+    }
+
+    #countdown::before {
+        top: 34px;
+        left: -4px;
+    }
+
+    #countdown::after {
+        right: -4px;
+        bottom: 10px;
+    }
+
+    #countdown .count-title::before {
+        width: 170px;
+        height: 170px;
+        top: -52px;
+        filter: blur(30px);
+    }
+
     .count-invitation {
-        font-size: 0.84rem;
-        margin-bottom: 20px;
+        max-width: 95%;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 18px;
     }
 
     .countdown-family-name {
-        font-size: 2.3rem;
+        font-size: clamp(2.35rem, 13vw, 3.1rem);
+        margin: 2px 0 6px;
+        line-height: 0.95;
+    }
+
+    .count-invitation::after {
+        width: 84px;
+        margin-top: 10px;
+    }
+
+    #timer {
+        max-width: 330px;
+        gap: 10px;
+    }
+
+    #timer div {
+        width: calc(50% - 6px);
+        max-width: 135px;
+        padding: 18px 10px;
+        border-radius: 17px;
+    }
+
+    #timer span {
+        font-size: 2.45rem;
+    }
+
+    #timer p {
+        font-size: 0.62rem;
+        letter-spacing: 1.8px;
+        margin-top: 9px;
+    }
+
+    .wedding-phrase {
+        max-width: 92%;
+        margin-top: 22px;
+        font-size: 1.58rem;
+        line-height: 1.12;
+    }
+
+    #countdown .wedding-phrase::after {
+        width: 72px;
+        margin-top: 16px;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 390px) {
+    #countdown {
+        padding: 62px 10px 52px;
+    }
+
+    #countdown::before,
+    #countdown::after {
+        width: 42px;
+        height: 82px;
+        opacity: 0.18;
+    }
+
+    #countdown::before {
+        top: 30px;
+        left: -10px;
+    }
+
+    #countdown::after {
+        right: -10px;
+        bottom: 8px;
+    }
+
+    .count-invitation {
+        font-size: 0.84rem;
+        line-height: 1.38;
+        margin-bottom: 17px;
+    }
+
+    .countdown-family-name {
+        font-size: clamp(2.1rem, 13vw, 2.75rem);
+        margin: 2px 0 5px;
+    }
+
+    #timer {
+        max-width: 300px;
+        gap: 9px;
+    }
+
+    #timer div {
+        max-width: 124px;
+        padding: 16px 8px;
+        border-radius: 16px;
+    }
+
+    #timer span {
+        font-size: 2.22rem;
+    }
+
+    #timer p {
+        font-size: 0.58rem;
+        letter-spacing: 1.5px;
+        margin-top: 8px;
+    }
+
+    .wedding-phrase {
+        font-size: 1.42rem;
+        margin-top: 20px;
+    }
+}
+
+/* Galaxy Fold, plegables angostos y celulares muy pequeños */
+@media (max-width: 340px) {
+    #countdown {
+        padding: 56px 8px 46px;
+    }
+
+    #countdown::before,
+    #countdown::after {
+        width: 36px;
+        height: 70px;
+        opacity: 0.14;
+    }
+
+    #countdown::before {
+        top: 26px;
+        left: -14px;
+    }
+
+    #countdown::after {
+        right: -14px;
+        bottom: 6px;
+    }
+
+    #countdown .count-title::before {
+        width: 140px;
+        height: 140px;
+        top: -44px;
+        filter: blur(26px);
+    }
+
+    .count-invitation {
+        max-width: 96%;
+        font-size: 0.78rem;
+        line-height: 1.35;
+        margin-bottom: 15px;
+        letter-spacing: 0.1px;
+    }
+
+    .countdown-family-name {
+        font-size: clamp(1.85rem, 13vw, 2.35rem);
+        line-height: 0.98;
+        margin: 2px 0 5px;
+    }
+
+    .count-invitation::after {
+        width: 70px;
+        margin-top: 8px;
+    }
+
+    #timer {
+        max-width: 260px;
+        gap: 8px;
+    }
+
+    #timer div {
+        width: calc(50% - 5px);
+        max-width: 112px;
+        padding: 14px 7px;
+        border-radius: 15px;
+    }
+
+    #timer span {
+        font-size: 1.95rem;
+    }
+
+    #timer p {
+        font-size: 0.52rem;
+        letter-spacing: 1.25px;
+        margin-top: 7px;
+    }
+
+    .wedding-phrase {
+        max-width: 94%;
+        margin-top: 18px;
+        font-size: 1.25rem;
+        line-height: 1.15;
+    }
+
+    #countdown .wedding-phrase::after {
+        width: 62px;
+        margin-top: 14px;
+    }
+}
+
+/* Galaxy Fold cerrado y pantallas extremadamente angostas */
+@media (max-width: 300px) {
+    #countdown {
+        padding: 50px 6px 42px;
+    }
+
+    .count-invitation {
+        font-size: 0.72rem;
+        line-height: 1.32;
+        margin-bottom: 13px;
+    }
+
+    .countdown-family-name {
+        font-size: 1.7rem;
+    }
+
+    #timer {
+        max-width: 235px;
+        gap: 7px;
+    }
+
+    #timer div {
+        max-width: 102px;
+        padding: 13px 6px;
+        border-radius: 14px;
+    }
+
+    #timer span {
+        font-size: 1.75rem;
+    }
+
+    #timer p {
+        font-size: 0.48rem;
+        letter-spacing: 1px;
+        margin-top: 6px;
+    }
+
+    .wedding-phrase {
+        font-size: 1.12rem;
     }
 }

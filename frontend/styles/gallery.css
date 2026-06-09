@@ -166,11 +166,6 @@
     z-index: 10;
 }
 
-.image-modal-close:hover {
-    transform: scale(1.08);
-    background: rgba(255, 255, 255, 0.96);
-}
-
 .image-modal-arrow {
     position: absolute;
     top: 50%;
@@ -189,11 +184,6 @@
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
     cursor: pointer;
     z-index: 10;
-}
-
-.image-modal-close:hover,
-.image-modal-arrow:hover {
-    background: rgba(255, 255, 255, 1);
 }
 
 .image-modal-arrow-left {
@@ -215,6 +205,10 @@
         margin-bottom: 36px;
     }
 
+    .gallery-viewport {
+        padding: 0 6px 28px;
+    }
+
     .gallery-track {
         gap: 18px;
         animation-duration: 55s;
@@ -230,17 +224,46 @@
         transform: scale(1.18);
     }
 
+    .gallery-arrow {
+        width: 42px;
+        height: 42px;
+        font-size: 2.1rem;
+    }
+
+    .gallery-arrow-left {
+        left: 6px;
+    }
+
+    .gallery-arrow-right {
+        right: 6px;
+    }
+
     .image-modal img {
-        max-width: 82%;
-        max-height: 82%;
+        max-width: min(84vw, 700px);
+        max-height: 86vh;
+        border-radius: 18px;
+    }
+
+    .image-modal-close {
+        top: 20px;
+        right: 22px;
+        width: 44px;
+        height: 44px;
+        font-size: 2rem;
+    }
+
+    .image-modal-arrow {
+        width: 46px;
+        height: 46px;
+        font-size: 2.25rem;
     }
 
     .image-modal-arrow-left {
-        left: 4%;
+        left: 22px;
     }
 
     .image-modal-arrow-right {
-        right: 4%;
+        right: 22px;
     }
 }
 
@@ -253,6 +276,10 @@
     #gallery h2 {
         font-size: 2.4rem;
         margin-bottom: 30px;
+    }
+
+    .gallery-viewport {
+        padding: 0 4px 26px;
     }
 
     .gallery-track {
@@ -277,9 +304,9 @@
     }
 
     .gallery-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 2rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1.95rem;
     }
 
     .gallery-arrow-left {
@@ -291,35 +318,121 @@
     }
 
     .image-modal img {
-        max-width: 88%;
-        max-height: 78%;
+        max-width: 84vw;
+        max-height: 84vh;
         border-radius: 16px;
     }
 
     .image-modal-close {
-        top: 18px;
-        right: 18px;
-        width: 42px;
-        height: 42px;
-        font-size: 2rem;
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.9rem;
     }
 
     .image-modal-arrow {
-        width: 44px;
-        height: 44px;
-        font-size: 2.2rem;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
     }
 
     .image-modal-arrow-left {
-        left: 14px;
+        left: 12px;
     }
 
     .image-modal-arrow-right {
-        right: 14px;
+        right: 12px;
     }
 }
 
-/* Celulares */
+/* Celulares grandes */
+@media (max-width: 600px) {
+    #gallery {
+        padding: 52px 12px 48px;
+    }
+
+    #gallery h2 {
+        font-size: 2.15rem;
+        margin-bottom: 26px;
+    }
+
+    .gallery-viewport {
+        padding: 0 2px 24px;
+    }
+
+    .gallery-track {
+        gap: 13px;
+        animation-duration: 66s;
+    }
+
+    .gallery-track img {
+        width: 200px;
+        height: 275px;
+        border-radius: 15px;
+    }
+
+    .gallery-track img:hover {
+        transform: none;
+        filter: none;
+    }
+
+    .gallery-wrapper::before {
+        width: 8px;
+        height: 8px;
+        bottom: 8px;
+        opacity: 0.45;
+    }
+
+    .gallery-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 1.75rem;
+        background: rgba(255, 255, 255, 0.74);
+    }
+
+    .gallery-arrow-left {
+        left: 2px;
+    }
+
+    .gallery-arrow-right {
+        right: 2px;
+    }
+
+    .image-modal-overlay {
+        backdrop-filter: blur(6px);
+    }
+
+    .image-modal img {
+        max-width: 86vw;
+        max-height: 82vh;
+        border-radius: 14px;
+    }
+
+    .image-modal-close {
+        top: 14px;
+        right: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.8rem;
+    }
+
+    .image-modal-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1.85rem;
+    }
+
+    .image-modal-arrow-left {
+        left: 8px;
+    }
+
+    .image-modal-arrow-right {
+        right: 8px;
+    }
+}
+
+/* Celulares normales */
 @media (max-width: 480px) {
     #gallery {
         padding: 48px 10px 45px;
@@ -342,11 +455,6 @@
         box-shadow: 0 10px 22px rgba(36, 59, 90, 0.16);
     }
 
-    .gallery-track img:hover {
-        transform: none;
-        filter: none;
-    }
-
     .gallery-wrapper::before {
         width: 8px;
         height: 8px;
@@ -355,85 +463,215 @@
     }
 
     .gallery-arrow {
-        width: 34px;
-        height: 34px;
-        font-size: 1.8rem;
-        background: rgba(255, 255, 255, 0.72);
-    }
-
-    .gallery-arrow-left {
-        left: 2px;
-    }
-
-    .gallery-arrow-right {
-        right: 2px;
-    }
-
-    .image-modal-overlay {
-        backdrop-filter: blur(6px);
+        width: 32px;
+        height: 32px;
+        font-size: 1.65rem;
     }
 
     .image-modal img {
-        max-width: 92%;
-        max-height: 72%;
+        max-width: 88vw;
+        max-height: 80vh;
         border-radius: 14px;
     }
 
     .image-modal-close {
-        top: 14px;
-        right: 14px;
-        width: 40px;
-        height: 40px;
-        font-size: 1.9rem;
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.7rem;
     }
 
     .image-modal-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 2rem;
+        width: 34px;
+        height: 34px;
+        font-size: 1.75rem;
     }
 
     .image-modal-arrow-left {
-        left: 10px;
+        left: 7px;
     }
 
     .image-modal-arrow-right {
-        right: 10px;
+        right: 7px;
     }
 }
 
 /* Celulares pequeños */
-@media (max-width: 360px) {
+@media (max-width: 390px) {
     #gallery {
-        padding: 42px 8px 40px;
+        padding: 44px 8px 42px;
     }
 
     #gallery h2 {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
+        margin-bottom: 22px;
     }
 
     .gallery-track {
         gap: 10px;
+        animation-duration: 72s;
     }
 
     .gallery-track img {
-        width: 150px;
-        height: 215px;
-        border-radius: 12px;
-    }
-
-    .image-modal img {
-        max-width: 94%;
-        border-radius: 12px;
+        width: 155px;
+        height: 220px;
+        border-radius: 13px;
     }
 
     .gallery-arrow {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
+        font-size: 1.55rem;
+    }
+
+    .image-modal img {
+        max-width: 90vw;
+        max-height: 78vh;
+        border-radius: 12px;
+    }
+
+    .image-modal-close {
+        top: 10px;
+        right: 10px;
+        width: 34px;
+        height: 34px;
+        font-size: 1.6rem;
     }
 
     .image-modal-arrow {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.65rem;
+    }
+
+    .image-modal-arrow-left {
+        left: 6px;
+    }
+
+    .image-modal-arrow-right {
+        right: 6px;
+    }
+}
+
+/* Galaxy Fold, plegables angostos y celulares muy pequeños */
+@media (max-width: 340px) {
+    #gallery {
+        padding: 40px 6px 38px;
+    }
+
+    #gallery h2 {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+
+    .gallery-viewport {
+        padding: 0 1px 22px;
+    }
+
+    .gallery-track {
+        gap: 9px;
+        animation-duration: 76s;
+    }
+
+    .gallery-track img {
+        width: 140px;
+        height: 200px;
+        border-radius: 12px;
+    }
+
+    .gallery-wrapper::before {
+        width: 7px;
+        height: 7px;
+        bottom: 7px;
+    }
+
+    .gallery-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 1.45rem;
+    }
+
+    .gallery-arrow-left {
+        left: 1px;
+    }
+
+    .gallery-arrow-right {
+        right: 1px;
+    }
+
+    .image-modal img {
+        max-width: 88vw;
+        max-height: 76vh;
+        border-radius: 11px;
+    }
+
+    .image-modal-close {
+        top: 8px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.5rem;
+    }
+
+    .image-modal-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1.55rem;
+    }
+
+    .image-modal-arrow-left {
+        left: 5px;
+    }
+
+    .image-modal-arrow-right {
+        right: 5px;
+    }
+}
+
+/* Galaxy Fold cerrado y pantallas extremadamente angostas */
+@media (max-width: 300px) {
+    #gallery {
+        padding: 36px 5px 34px;
+    }
+
+    #gallery h2 {
+        font-size: 1.55rem;
+        margin-bottom: 18px;
+    }
+
+    .gallery-track {
+        gap: 8px;
+        animation-duration: 80s;
+    }
+
+    .gallery-track img {
+        width: 125px;
+        height: 180px;
+        border-radius: 11px;
+    }
+
+    .gallery-arrow {
+        width: 26px;
+        height: 26px;
+        font-size: 1.35rem;
+    }
+
+    .image-modal img {
+        max-width: 87vw;
+        max-height: 74vh;
+        border-radius: 10px;
+    }
+
+    .image-modal-close {
+        width: 30px;
+        height: 30px;
+        font-size: 1.4rem;
+    }
+
+    .image-modal-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 1.45rem;
     }
 }
