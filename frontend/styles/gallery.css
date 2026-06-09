@@ -135,8 +135,11 @@
 
 .image-modal img {
     position: relative;
-    max-width: 70%;
-    max-height: 80%;
+    width: auto;
+    height: auto;
+    max-width: min(88vw, 760px);
+    max-height: 88vh;
+    object-fit: contain;
     border-radius: 20px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
     animation: zoomIn 0.3s ease;
@@ -194,11 +197,11 @@
 }
 
 .image-modal-arrow-left {
-    left: 7%;
+    left: clamp(14px, 4vw, 70px);
 }
 
 .image-modal-arrow-right {
-    right: 7%;
+    right: clamp(14px, 4vw, 70px);
 }
 
 /* Tablets grandes */
