@@ -62,6 +62,8 @@ export function initIntroExperience() {
 
         showMusicButton();
         updateMusicButton();
+        
+        document.dispatchEvent(new CustomEvent("introExperienceStarted"));
     });
 
     if (musicToggle) {

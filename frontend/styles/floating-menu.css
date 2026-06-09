@@ -1,0 +1,179 @@
+.floating-menu {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 99998;
+
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+
+    pointer-events: none;
+}
+
+.floating-menu.visible {
+    display: flex;
+    pointer-events: auto;
+}
+
+.floating-menu-toggle {
+    width: 48px;
+    height: 58px;
+
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 16px 36px rgba(36, 59, 90, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.floating-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.52);
+    transform: translateY(-2px);
+    box-shadow:
+        0 20px 44px rgba(36, 59, 90, 0.28),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+}
+
+.floating-menu-toggle span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--blue-primary);
+    display: block;
+}
+
+.floating-menu-panel {
+    position: absolute;
+    top: 68px;
+    left: 0;
+
+    width: 230px;
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 18px 45px rgba(36, 59, 90, 0.24),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.96);
+    pointer-events: none;
+
+    transition:
+        opacity 0.28s ease,
+        transform 0.28s ease;
+}
+
+.floating-menu.active .floating-menu-panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.floating-menu-panel a {
+    width: 100%;
+    padding: 12px 14px;
+
+    border-radius: 14px;
+
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    color: var(--blue-primary);
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.36);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.floating-menu-panel a:hover {
+    background: rgba(221, 237, 249, 0.82);
+    transform: translateX(4px);
+    color: var(--blue-primary);
+}
+
+@media (max-width: 600px) {
+    .floating-menu {
+        top: 16px;
+        left: 16px;
+    }
+
+    .floating-menu-toggle {
+        width: 44px;
+        height: 52px;
+        border-radius: 22px;
+    }
+
+    .floating-menu-panel {
+        top: 62px;
+        width: 210px;
+        padding: 12px;
+        border-radius: 20px;
+    }
+
+    .floating-menu-panel a {
+        padding: 11px 12px;
+        font-size: 0.88rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .floating-menu {
+        top: 12px;
+        left: 12px;
+    }
+
+    .floating-menu-toggle {
+        width: 40px;
+        height: 48px;
+        border-radius: 20px;
+    }
+
+    .floating-menu-toggle span {
+        width: 4px;
+        height: 4px;
+    }
+
+    .floating-menu-panel {
+        top: 58px;
+        width: 195px;
+    }
+
+    .floating-menu-panel a {
+        font-size: 0.84rem;
+    }
+}

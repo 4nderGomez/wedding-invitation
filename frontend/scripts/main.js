@@ -1,4 +1,5 @@
 import { initIntroExperience } from'./introExperience.js';
+import { initFloatingMenu } from './floatingMenu.js';
 import { initCountdown } from './countdown.js';
 import { initGalleryModal } from './gallery.js';
 import { initModal } from './modal.js';
@@ -12,4 +13,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initModal();
     initDynamicFields();
     initSubmitForm();
+    initFloatingMenu();
 });
