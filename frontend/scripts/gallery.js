@@ -14,7 +14,7 @@ export function initGalleryModal() {
 
     if (!images.length || !modal || !modalImg || !overlay) return;
 
-    const originalImages = Array.from(images).slice(0, 6);
+    const originalImages = Array.from(images).slice(0, 11);
     let currentImageIndex = 0;
 
     function openModal(index) {

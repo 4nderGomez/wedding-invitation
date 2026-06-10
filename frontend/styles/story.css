@@ -1,282 +1,298 @@
-#story {
-    padding: 80px 20px 70px;
-    display: flex;
-    justify-content: center;
-    background: var(--blue-grey);
-}
-
-.story-card {
-    width: 100%;
-    max-width: 900px;
-    padding: 60px 40px;
-    border-radius: 30px;
+.wedding-words {
     position: relative;
-    background: url("../assets/images/imagens/letter-7.jpeg");
-    background-size: 100% auto;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    min-height: 100vh;
+    padding: 110px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    background-image: url("../assets/images/background/7.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* efecto borde suave tipo carta */
-.story-card::before {
-    content: "";
+.wedding-words-overlay {
     position: absolute;
-    inset: 10px;
-    border-radius: 25px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    pointer-events: none;
-}
-
-.story-card::after {
-    content: "";
-    position: absolute;
-    left: -90px;
-    bottom: -70px;
-    width: 115%;
-    height: 260px;
-    background: url("../assets/images/imagens/flower-6.png") center / contain no-repeat;
-    opacity: 0.55;
-    transform: rotate(-2deg);
-    pointer-events: none;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(28, 43, 72, 0.74) 0%,
+            rgba(28, 43, 72, 0.48) 45%,
+            rgba(180, 203, 235, 0.24) 100%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(180, 203, 235, 0.2),
+            rgba(28, 43, 72, 0.42)
+        );
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
     z-index: 1;
 }
 
-.story-card h2 {
-    text-align: center;
-    font-family: var(--font-title);
-    color: var(--blue-primary);
-    margin-bottom: 50px;
-}
-
-.story-content {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-}
-
-.story-card h2,
-.story-content {
+.wedding-words-content {
     position: relative;
     z-index: 2;
-}
-
-.story-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-    grid-template-areas: "img text";
-}
-
-.story-row.right {
-    grid-template-areas: "text img";
-}
-
-.story-img {
-    grid-area: img;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.story-img img {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    max-width: 250px;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-
+    max-width: 760px;
+    margin-right: clamp(20px, 45vw, 520px);
+    text-align: center;
+    color: var(--text-light);
 }
 
-.story-text {
-    grid-area: text;
-    width: 100%;
+.wedding-words-label {
+    display: inline-block;
+    margin-bottom: 12px;
     font-family: var(--font-body);
-    line-height: 2;
-    padding: 22px;
-    border-radius: 18px;
-    background: rgba(247, 250, 253, 0.10);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 235, 222, 0.9);
 }
 
-/* Tablets */
-@media (max-width: 900px) {
+.wedding-words h2 {
+    margin-bottom: 30px;
 
-    #story {
-        padding: 65px 18px 60px;
+    font-family: var(--font-title);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: rgba(255, 255, 255, 0.96);
+
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.26);
+}
+
+.wedding-words-card {
+    padding: 42px 46px;
+
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+
+    background: rgba(247, 250, 253, 0.22);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.wedding-words-card p {
+    margin: 0 0 18px;
+
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.85;
+
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.wedding-words-card p:last-child {
+    margin-bottom: 0;
+}
+
+.wedding-words-signature {
+    margin-top: 26px !important;
+
+    font-family: var(--font-script) !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    line-height: 1.05 !important;
+
+    color: rgba(255, 235, 222, 0.96) !important;
+}
+
+/* Monitores grandes */
+@media (min-width: 1440px) {
+    .wedding-words {
+        min-height: 100vh;
+        padding: 120px 24px;
     }
 
-    .story-card {
-        padding: 50px 30px;
-        border-radius: 26px;
+    .wedding-words-content {
+        max-width: 820px;
+        margin-right: clamp(40px, 42vw, 560px);
+    }
+}
+
+/* Tablets grandes */
+@media (max-width: 1024px) {
+    .wedding-words {
+        min-height: 100vh;
+        padding: 95px 18px;
+        background-position: center;
     }
 
-    .story-card::after {
-        left: -60px;
-        bottom: -45px;
-        width: 120%;
-        height: 220px;
-        opacity: 0.42;
+    .wedding-words-content {
+        max-width: 700px;
+        margin-right: clamp(10px, 32vw, 320px);
     }
 
-    .story-card h2 {
-        margin-bottom: 42px;
-        font-size: 2.5rem;
+    .wedding-words-card {
+        padding: 38px 40px;
+        border-radius: 30px;
     }
 
-    .story-content {
-        gap: 50px;
-    }
-
-    .story-row {
-        gap: 28px;
-    }
-
-    .story-img img {
-        max-width: 220px;
-    }
-
-    .story-text {
-        padding: 20px;
-        line-height: 1.85;
-        font-size: 0.98rem;
+    .wedding-words-card p {
+        font-size: 0.96rem;
+        line-height: 1.8;
     }
 }
 
 /* Tablets pequeñas */
 @media (max-width: 768px) {
-
-    #story {
-        padding: 58px 16px 55px;
+    .wedding-words {
+        min-height: 100vh;
+        padding: 82px 16px;
+        background-position: center;
     }
 
-    .story-card {
-        padding: 42px 22px;
-        border-radius: 24px;
+    .wedding-words-overlay {
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(28, 43, 72, 0.62) 0%,
+                rgba(28, 43, 72, 0.5) 48%,
+                rgba(28, 43, 72, 0.68) 100%
+            );
     }
 
-    .story-card::before {
-        inset: 8px;
+    .wedding-words-content {
+        max-width: 620px;
+        margin-right: 0;
     }
 
-    .story-card::after {
-        left: -40px;
-        bottom: -25px;
-        width: 125%;
-        height: 180px;
-        opacity: 0.32;
+    .wedding-words-label {
+        font-size: 0.76rem;
+        letter-spacing: 4px;
     }
 
-    .story-card h2 {
-        font-size: 2.15rem;
-        margin-bottom: 34px;
+    .wedding-words h2 {
+        margin-bottom: 26px;
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
     }
 
-    .story-content {
-        gap: 40px;
+    .wedding-words-card {
+        padding: 34px 30px;
+        border-radius: 28px;
+        background: rgba(247, 250, 253, 0.24);
     }
 
-    /* Todas las filas verticales */
-    .story-row,
-    .story-row.right {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "img"
-            "text";
-
-        gap: 24px;
-        text-align: center;
-    }
-
-    .story-img {
-        justify-content: center;
-    }
-
-    .story-img img {
-        max-width: 240px;
-        width: 100%;
-    }
-
-    .story-text {
-        width: 100%;
-        padding: 20px;
+    .wedding-words-card p {
+        font-size: 0.94rem;
         line-height: 1.75;
-        font-size: 0.95rem;
     }
 }
 
-/* Celulares */
-@media (max-width: 480px) {
-
-    #story {
-        padding: 48px 12px 48px;
+/* Celulares grandes */
+@media (max-width: 600px) {
+    .wedding-words {
+        min-height: 100vh;
+        padding: 70px 14px;
+        background-position: center top;
     }
 
-    .story-card {
-        padding: 34px 16px;
+    .wedding-words h2 {
+        margin-bottom: 24px;
+        font-size: 2.25rem;
+    }
+
+    .wedding-words-card {
+        padding: 30px 22px;
+        border-radius: 24px;
+    }
+
+    .wedding-words-card p {
+        margin-bottom: 16px;
+        font-size: 0.9rem;
+        line-height: 1.68;
+    }
+
+    .wedding-words-signature {
+        font-size: 2.25rem !important;
+    }
+}
+
+/* Celulares normales */
+@media (max-width: 480px) {
+    .wedding-words {
+        min-height: 100vh;
+        padding: 62px 12px;
+    }
+
+    .wedding-words-label {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+    }
+
+    .wedding-words h2 {
+        font-size: 2rem;
+    }
+
+    .wedding-words-card {
+        padding: 28px 18px;
         border-radius: 22px;
     }
 
-    .story-card::before {
-        inset: 6px;
-        border-radius: 18px;
+    .wedding-words-card p {
+        font-size: 0.86rem;
+        line-height: 1.62;
     }
 
-    .story-card::after {
-        left: -35px;
-        bottom: -10px;
-        width: 135%;
-        height: 145px;
-        opacity: 0.22;
-    }
-
-    .story-card h2 {
-        font-size: 1.9rem;
-        margin-bottom: 28px;
-    }
-
-    .story-content {
-        gap: 32px;
-    }
-
-    .story-row {
-        gap: 18px;
-    }
-
-    .story-img img {
-        max-width: 200px;
-        border-radius: 16px;
-    }
-
-    .story-text {
-        padding: 16px;
-        border-radius: 16px;
-        line-height: 1.65;
-        font-size: 0.9rem;
+    .wedding-words-signature {
+        font-size: 2rem !important;
     }
 }
 
 /* Celulares pequeños */
-@media (max-width: 360px) {
-
-    .story-card {
-        padding: 28px 12px;
+@media (max-width: 390px) {
+    .wedding-words {
+        min-height: 100vh;
+        padding: 54px 10px;
     }
 
-    .story-card h2 {
-        font-size: 1.7rem;
+    .wedding-words h2 {
+        font-size: 1.8rem;
     }
 
-    .story-img img {
-        max-width: 175px;
+    .wedding-words-card {
+        padding: 24px 15px;
+        border-radius: 20px;
     }
 
-    .story-text {
-        padding: 14px;
-        font-size: 0.85rem;
-        line-height: 1.6;
+    .wedding-words-card p {
+        font-size: 0.82rem;
+        line-height: 1.58;
+    }
+
+    .wedding-words-signature {
+        font-size: 1.82rem !important;
+    }
+}
+
+/* Galaxy Fold y pantallas muy angostas */
+@media (max-width: 340px) {
+    .wedding-words {
+        min-height: 100vh;
+        padding: 46px 8px;
+    }
+
+    .wedding-words h2 {
+        font-size: 1.65rem;
+    }
+
+    .wedding-words-card {
+        padding: 22px 12px;
+        border-radius: 18px;
+    }
+
+    .wedding-words-card p {
+        font-size: 0.78rem;
+        line-height: 1.52;
+    }
+
+    .wedding-words-signature {
+        font-size: 1.65rem !important;
     }
 }

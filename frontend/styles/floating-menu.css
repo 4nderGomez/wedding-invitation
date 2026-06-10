@@ -3,11 +3,9 @@
     top: 24px;
     left: 24px;
     z-index: 99998;
-
     display: none;
     flex-direction: column;
     align-items: flex-start;
-
     pointer-events: none;
 }
 
@@ -19,27 +17,21 @@
 .floating-menu-toggle {
     width: 52px;
     height: 52px;
-
-    border: 1px solid rgba(255, 255, 255, 0.44);
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.46);
     border-radius: 50%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4px;
-
-    background: rgba(255, 255, 255, 0.32);
-
+    background: rgba(255, 255, 255, 0.34);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-
     box-shadow:
         0 16px 36px rgba(36, 59, 90, 0.22),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.22);
-
+        inset 0 0 0 1px rgba(255, 255, 255, 0.24);
     cursor: pointer;
-
     transition:
         background 0.35s ease,
         transform 0.35s ease,
@@ -50,29 +42,44 @@
 .floating-menu-toggle span {
     width: 5px;
     height: 5px;
-
     display: block;
-
     border-radius: 50%;
     background: var(--blue-primary);
-
     transition:
         transform 0.35s ease,
         background 0.35s ease,
         opacity 0.35s ease;
 }
 
-.floating-menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.52);
-    border-color: rgba(255, 255, 255, 0.68);
+.floating-menu-toggle:hover,
+.floating-menu-toggle:focus-visible {
+    background: rgba(151, 202, 235, 0.62);
+    border-color: rgba(255, 255, 255, 0.76);
     transform: translateY(-2px);
     box-shadow:
-        0 20px 44px rgba(36, 59, 90, 0.3),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+        0 20px 44px rgba(36, 59, 90, 0.28),
+        0 0 0 4px rgba(151, 202, 235, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+    outline: none;
 }
 
+.floating-menu-toggle:hover span,
+.floating-menu-toggle:focus-visible span {
+    background: var(--blue-primary);
+}
+
+/* Botón cuando el menú está abierto */
 .floating-menu.active .floating-menu-toggle {
-    background: rgba(36, 59, 90, 0.82);
+    background: linear-gradient(
+        135deg,
+        rgba(116, 177, 220, 0.94),
+        rgba(151, 202, 235, 0.96)
+    );
+    border-color: rgba(255, 255, 255, 0.82);
+    box-shadow:
+        0 22px 48px rgba(36, 59, 90, 0.3),
+        0 0 0 4px rgba(151, 202, 235, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.42);
 }
 
 .floating-menu.active .floating-menu-toggle span {
@@ -91,36 +98,28 @@
     transform: translateY(-9px) scale(1.15);
 }
 
+/* Panel */
 .floating-menu-panel {
     position: absolute;
     top: 64px;
     left: 0;
-
-    min-width: 230px;
+    min-width: 238px;
     padding: 14px;
-
     display: flex;
     flex-direction: column;
     gap: 8px;
-
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.46);
-
-    background: rgba(255, 255, 255, 0.36);
-
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.38);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
     box-shadow:
         0 20px 48px rgba(36, 59, 90, 0.28),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.24);
-
+        inset 0 0 0 1px rgba(255, 255, 255, 0.26);
     opacity: 0;
     transform: translateY(-12px) scale(0.94);
     transform-origin: top left;
-
     pointer-events: none;
-
     transition:
         opacity 0.32s ease,
         transform 0.32s ease;
@@ -132,24 +131,22 @@
     pointer-events: auto;
 }
 
+/* Links */
 .floating-menu-panel a {
     width: 100%;
     padding: 12px 15px;
-
-    display: block;
-
+    display: flex;
+    align-items: center;
+    gap: 10px;
     border-radius: 999px;
-
     font-family: var(--font-body);
     font-size: 0.92rem;
     font-weight: 600;
     letter-spacing: 0.3px;
-
     color: var(--blue-primary);
     text-decoration: none;
-
-    background: rgba(255, 255, 255, 0.38);
-
+    background: rgba(255, 255, 255, 0.42);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
     transition:
         background 0.32s ease,
         color 0.32s ease,
@@ -157,18 +154,45 @@
         box-shadow 0.32s ease;
 }
 
-.floating-menu-panel a:hover {
+.floating-menu-panel a:hover,
+.floating-menu-panel a:focus-visible {
     color: #ffffff;
     background: linear-gradient(
         135deg,
-        var(--blue-primary),
-        var(--blue-accent)
+        rgba(116, 177, 220, 0.96),
+        rgba(151, 202, 235, 0.98)
     );
-
     transform: translateX(5px);
-
     box-shadow:
-        0 10px 22px rgba(36, 59, 90, 0.18);
+        0 12px 24px rgba(36, 59, 90, 0.18),
+        0 0 0 3px rgba(151, 202, 235, 0.18);
+    outline: none;
+}
+
+/* Iconos dentro del menú */
+.floating-menu-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    line-height: 1;
+    color: var(--blue-primary);
+    background: rgba(255, 255, 255, 0.58);
+    transition:
+        background 0.32s ease,
+        color 0.32s ease,
+        transform 0.32s ease;
+}
+
+.floating-menu-panel a:hover .floating-menu-icon,
+.floating-menu-panel a:focus-visible .floating-menu-icon {
+    color: rgba(116, 177, 220, 1);
+    background: rgba(255, 255, 255, 0.96);
+    transform: scale(1.05);
 }
 
 @media (max-width: 600px) {
@@ -184,7 +208,7 @@
 
     .floating-menu-panel {
         top: 58px;
-        min-width: 215px;
+        min-width: 220px;
         padding: 12px;
         border-radius: 22px;
     }
@@ -192,6 +216,23 @@
     .floating-menu-panel a {
         padding: 11px 13px;
         font-size: 0.88rem;
+    }
+
+    .floating-menu-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 0.84rem;
+    }
+}
+
+@media (max-width: 390px) {
+    .floating-menu {
+        top: 14px;
+        left: 14px;
+    }
+
+    .floating-menu-panel {
+        min-width: 208px;
     }
 }
 
@@ -213,11 +254,17 @@
 
     .floating-menu-panel {
         top: 54px;
-        min-width: 195px;
+        min-width: 196px;
         padding: 11px;
     }
 
     .floating-menu-panel a {
         font-size: 0.84rem;
+    }
+
+    .floating-menu-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.78rem;
     }
 }

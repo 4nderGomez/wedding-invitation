@@ -39,22 +39,41 @@
             <a href="#gallery">Fotos</a>
             <a href="#schedule">Cronograma</a>
             <a href="#eventInfo">Ubicación</a>
+            <a href="#dressCode">Código de vestimenta</a>
             <a href="#rsvp-container">Confirmar asistencia</a>
         </div>
     </nav>
     
     <div id="introScreen">
-        <!-- Flores -->
-        <img src="assets/images/imagens/flower-2.png" alt="" class="intro-flower intro-flower-left">
-        <img src="assets/images/imagens/flower-2.png" alt="" class="intro-flower intro-flower-right">
-    
+        <!-- Fondo suave -->
+        <div class="intro-overlay"></div>
+
+        <!-- Collage -->
+        <div class="intro-collage">
+            <figure class="intro-collage-item collage-1">
+                <img src="assets/images/intro/1.jpg" alt="David y Magui">
+            </figure>
+
+            <figure class="intro-collage-item collage-2">
+                <img src="assets/images/intro/2.jpg" alt="David y Magui">
+            </figure>
+
+            <figure class="intro-collage-item collage-3">
+                <img src="assets/images/intro/3.jpg" alt="David y Magui">
+            </figure>
+
+            <figure class="intro-collage-item collage-4">
+                <img src="assets/images/intro/4.jpg" alt="David y Magui">
+            </figure>
+        </div>
+
         <!-- Contenido -->
         <div class="intro-content">
             <p class="intro-top">Nuestra boda</p>
-            <h1 class="intro-title">David & Magui</h1>
+            <h1 class="intro-title">David &amp; Magui</h1>
             <p class="intro-date">19 de diciembre 2026</p>
-            <!-- Logo -->
-            <button id="enterExperience" class="intro-logo-btn">
+
+            <button id="enterExperience" class="intro-logo-btn" type="button">
                 <div class="intro-logo-wrapper">
                     <img src="assets/images/hero/logo-2.svg" alt="Logo">
                 </div>
@@ -112,42 +131,36 @@
             <p class="wedding-phrase">Celebra con nosotros el inicio de nuestra historia</p>
         </section>
 
-        <!-- Historia de los novios -->
-        <section id="story">
-            <div class="story-card">
-                <div class="story-content">
+        <!-- Palabras de los novios -->
+        <section id="weddingWords" class="wedding-words">
+            <div class="wedding-words-overlay"></div>
 
-                    <!-- Bloque 1 -->
-                    <div class="story-row">
-                        <div class="story-img">
-                            <img src="assets/images/history/novio.jpeg" alt="novio">
-                        </div>
-                        <div class="story-text">
-                            <p><strong>
-                                Desde el primer momento supe que había algo especial en ella. 
-                                Su forma de ver la vida, su sonrisa y la tranquilidad que transmite 
-                                hicieron que cada día a su lado fuera único. Con el tiempo entendí 
-                                que no solo era amor, era hogar. Hoy agradezco cada instante juntos 
-                                y todo lo que estamos construyendo.
-                            </strong></p>
-                        </div>
-                    </div>
+            <div class="wedding-words-content">
+                <span class="wedding-words-label">Con amor</span>
 
-                    <!-- Bloque 2 -->
-                    <div class="story-row right">
-                        <div class="story-text">
-                            <p><strong>
-                                Nunca imaginé encontrar a alguien que me hiciera sentir tan segura 
-                                y feliz. Él llegó a mi vida en el momento perfecto, llenando mis días 
-                                de alegría, paciencia y amor. A su lado aprendí que el amor verdadero 
-                                se construye con pequeños detalles. Hoy sé que quiero caminar siempre junto a él.
-                            </strong></p>
-                        </div>
-                        <div class="story-img">
-                            <img src="assets/images/history/novia.jpeg" alt="novia">
-                        </div>
-                    </div>
+                <h2>Palabras de los novios</h2>
 
+                <div class="wedding-words-card">
+                    <p>
+                        Hoy queremos agradecerte por acompañarnos en uno de los momentos
+                        más importantes de nuestra vida.
+                    </p>
+
+                    <p>
+                        Cada oración, cada consejo, cada abrazo y cada muestra de cariño
+                        han sido parte del camino que nos trajo hasta aquí.
+                    </p>
+
+                    <p>
+                        Deseamos que este día no solo sea una celebración para nosotros,
+                        sino también un recuerdo hermoso para todos los que forman parte
+                        de nuestra historia.
+                    </p>
+
+                    <p class="wedding-words-signature">
+                        Con cariño,<br>
+                        David &amp; Magui
+                    </p>
                 </div>
             </div>
         </section>
@@ -165,20 +178,30 @@
                 <div class="gallery-viewport">
                     <div class="gallery-track">
 
-                        <img src="assets/images/gallery/1.jpeg" alt="">
-                        <img src="assets/images/gallery/2.jpeg" alt="">
-                        <img src="assets/images/gallery/3.jpeg" alt="">
-                        <img src="assets/images/gallery/4.jpeg" alt="">
-                        <img src="assets/images/gallery/5.jpeg" alt="">
-                        <img src="assets/images/gallery/6.jpeg" alt="">
+                        <img src="assets/images/gallery/0.jpg" alt="">
+                        <img src="assets/images/gallery/1.jpg" alt="">
+                        <img src="assets/images/gallery/2.jpg" alt="">
+                        <img src="assets/images/gallery/3.jpg" alt="">
+                        <img src="assets/images/gallery/4.jpg" alt="">
+                        <img src="assets/images/gallery/5.jpg" alt="">
+                        <img src="assets/images/gallery/6.jpg" alt="">
+                        <img src="assets/images/gallery/7.jpg" alt="">
+                        <img src="assets/images/gallery/8.jpg" alt="">
+                        <img src="assets/images/gallery/9.jpg" alt="">
+                        <img src="assets/images/gallery/10.jpg" alt="">
 
                         <!-- duplicadas -->
-                        <img src="assets/images/gallery/1.jpeg" alt="">
-                        <img src="assets/images/gallery/2.jpeg" alt="">
-                        <img src="assets/images/gallery/3.jpeg" alt="">
-                        <img src="assets/images/gallery/4.jpeg" alt="">
-                        <img src="assets/images/gallery/5.jpeg" alt="">
-                        <img src="assets/images/gallery/6.jpeg" alt="">
+                        <img src="assets/images/gallery/0.jpg" alt="">
+                        <img src="assets/images/gallery/1.jpg" alt="">
+                        <img src="assets/images/gallery/2.jpg" alt="">
+                        <img src="assets/images/gallery/3.jpg" alt="">
+                        <img src="assets/images/gallery/4.jpg" alt="">
+                        <img src="assets/images/gallery/5.jpg" alt="">
+                        <img src="assets/images/gallery/6.jpg" alt="">
+                        <img src="assets/images/gallery/7.jpg" alt="">
+                        <img src="assets/images/gallery/8.jpg" alt="">
+                        <img src="assets/images/gallery/9.jpg" alt="">
+                        <img src="assets/images/gallery/10.jpg" alt="">
 
                     </div>
                 </div>
@@ -384,10 +407,72 @@
                             <span class="dress-color-circle" style="background: #b4cbeb;"></span>
                             <p>Azul claro</p>
                         </div>
-
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <section id="gifts">
+            <div class="gifts-overlay"></div>
+
+            <div class="gifts-card">
+                <div class="gifts-image">
+                    <img src="assets/images/imagens/gift.png" alt="Caja de regalo">
+                </div>
+
+                <div class="gifts-content">
+                    <span class="gifts-label">Con mucho cariño</span>
+                    <h2>Mesa de regalos</h2>
+
+                    <p class="gifts-description">
+                        Su presencia en nuestra boda es el regalo más importante para nosotros.
+                        Si además desean tener un detalle con nosotros, agradeceremos profundamente
+                        su cariño en forma de apoyo económico, ya que nos ayudará a comenzar esta
+                        nueva etapa con mucha ilusión y amor.
+                    </p>
+
+                    <div class="gifts-bank-data">
+                        <div class="gift-data-item">
+                            <div class="gift-data-text">
+                                <span>Banco</span>
+                                <strong>Banco Azteca</strong>
+                            </div>
+                            <button class="copy-btn" data-copy="Banco Azteca">Copiar</button>
+                        </div>
+
+                        <div class="gift-data-item">
+                            <div class="gift-data-text">
+                                <span>Beneficiario</span>
+                                <strong>Alexander David Gómez Jarquín</strong>
+                            </div>
+                            <button class="copy-btn" data-copy="Alexander David Gómez Jarquín">Copiar</button>
+                        </div>
+
+                        <div class="gift-data-item">
+                            <div class="gift-data-text">
+                                <span>CLABE</span>
+                                <strong>1276 1001 3938 3775 05</strong>
+                            </div>
+                            <button class="copy-btn" data-copy="127610013938377505">Copiar</button>
+                        </div>
+
+                        <div class="gift-data-item">
+                            <div class="gift-data-text">
+                                <span>Número de tarjeta</span>
+                                <strong>4027 6658 6481 2368</strong>
+                            </div>
+                            <button class="copy-btn" data-copy="4027665864812368">Copiar</button>
+                        </div>
+                    </div>
+
+                    <div id="copyToast" class="copy-toast">
+                        Se ha copiado al portapapeles
+                    </div>
+
+                    <p class="gifts-note">
+                        Gracias por acompañarnos y por todo el cariño que nos brindan.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -545,55 +630,24 @@
     </div>
 
     <footer>
-        <div class="petals">
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-            <span class="petal"></span>
-        </div>
-
         <div class="footer-content">
-            <img src="assets/images/imagens/couple-pinguis.png" alt="Pinguinos enamorados" class="footer-penguins">
+            <img 
+                src="assets/images/imagens/couple-pinguis.png" 
+                alt="Pinguinos enamorados" 
+                class="footer-penguins"
+            >
+
             <p>Gracias por acompañarnos en este día tan especial</p>
-            <h3>David & Magui</h3>
+            <h3>David &amp; Magui</h3>
             <small>19 · Diciembre · 2026</small>
         </div>
 
-        <!-- Autor -->
-        <p class="footer-author">
-            <span class="autor-line">Diseño y desarrollo por</span>
+        <div class="footer-author">
+            <span class="author-line">Diseño y desarrollo por</span>
             <strong>Alexander David Gómez Jarquín</strong>
             <a href="mailto:alexander.david.g.j@gmail.com">alexander.david.g.j@gmail.com</a>
             <small class="copyright">© 2026 Todos los derechos reservados</small>
-        </p>
+        </div>
     </footer>
 
     <div id="successToast" class="success-toast">

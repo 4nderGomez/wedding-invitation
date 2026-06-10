@@ -1,27 +1,66 @@
 #schedule {
-    padding: 75px 20px 85px;
-    text-align: center;
-    background: var(--blue-grey);
     position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: clamp(56px, 7vh, 90px) 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     overflow: hidden;
+    background:
+        linear-gradient(
+            rgba(180, 203, 235, 0.28),
+            rgba(180, 203, 235, 0.3)
+        ),
+        url("../assets/images/background/6.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#schedule::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(247, 250, 253, 0.34) 0%,
+            rgba(180, 203, 235, 0.24) 45%,
+            rgba(28, 43, 72, 0.18) 100%
+        );
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#schedule h2,
+.timeline {
+    position: relative;
+    z-index: 2;
 }
 
 #schedule h2 {
-    position: relative;
-    z-index: 2;
+    margin-bottom: clamp(34px, 5vh, 54px);
     font-family: var(--font-title);
-    font-size: 3rem;
-    margin-bottom: 55px;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
     color: var(--blue-primary);
+    text-shadow:
+        0 8px 24px rgba(255, 255, 255, 0.45),
+        0 3px 12px rgba(36, 59, 90, 0.12);
 }
 
-/* Timeline
-    -> Linea central*/
+/* Timeline */
 .timeline {
-    position: relative;
+    width: 100%;
     max-width: 880px;
     margin: 0 auto;
-    z-index: 2;
 }
 
 .timeline::before {
@@ -40,14 +79,13 @@
     transform: translateX(-50%);
 }
 
-/*Items
-    -> Alternancia */
+/* Items */
 .timeline-item {
     position: relative;
     width: 50%;
-    padding: 24px 60px;
+    padding: 20px 58px;
+    margin-bottom: 6px;
     opacity: 0;
-    margin-bottom: 10px;
     animation: fadeUp 1s ease forwards;
 }
 
@@ -61,22 +99,20 @@
     text-align: left;
 }
 
-/* Tarjetas de cada apartado
-    -> Hover
-    -> Titulos
-    -> Hora
-    -> Texto*/
+/* Tarjeta */
 .content {
-    background: rgba(247, 250, 253, 0.52);
-    backdrop-filter: blur(10px);
-    padding: 24px 26px;
-    border-radius: 22px;
-    border: 1px solid rgba(255,255,255,0.55);
-    box-shadow:
-        0 14px 34px rgba(36, 59, 90, 0.08),
-        0 2px 10px rgba(255,255,255,0.18);
     display: inline-block;
+    width: 100%;
     max-width: 330px;
+    padding: 22px 24px;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    background: rgba(247, 250, 253, 0.58);
+    backdrop-filter: blur(11px);
+    -webkit-backdrop-filter: blur(11px);
+    box-shadow:
+        0 14px 34px rgba(36, 59, 90, 0.09),
+        0 2px 10px rgba(255, 255, 255, 0.18);
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -84,58 +120,57 @@
 
 .content:hover {
     transform: translateY(-4px);
-
     box-shadow:
         0 20px 40px rgba(36, 59, 90, 0.14),
-        0 4px 14px rgba(255,255,255,0.22);
+        0 4px 14px rgba(255, 255, 255, 0.22);
 }
 
 .content h3 {
-    color: var(--blue-primary);
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
     margin-bottom: 8px;
+    font-family: var(--font-title);
+    font-size: 1.18rem;
+    line-height: 1.15;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--blue-primary);
 }
 
 .time,
 .item {
     display: block;
-    font-size: 0.95rem;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--blue-accent);
-    margin-bottom: 12px;
 }
 
 .content p {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.62;
     color: var(--text-secondary);
 }
 
-/*Iconos
-    -> Posición
-    -> Imagen icono */
+/* Iconos */
 .icon {
     position: absolute;
-    top: 34px;
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
+    top: 30px;
+    width: 68px;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.92);
-    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow:
         0 10px 25px rgba(28, 43, 72, 0.18),
-        0 0 0 6px rgba(255,255,255,0.22);
+        0 0 0 6px rgba(255, 255, 255, 0.22);
     z-index: 3;
-    animation: float 3s ease-in-out infinite;
     overflow: hidden;
+    animation: float 3s ease-in-out infinite;
 }
 
-.timeline-item.timeline-item.left .icon {
+.timeline-item.left .icon {
     right: -3px;
 }
 
@@ -144,86 +179,155 @@
 }
 
 .icon img {
-    width: 72%;
-    height: 72%;
-    object-fit: contain;   /* evita deformación */
     display: block;
-    transform: scale(0.85);
+    width: 68%;
+    height: 68%;
+    object-fit: contain;
 }
 
 /* Conector */
 .timeline-item::after {
     content: "";
     position: absolute;
-    top: 58px;
+    top: 54px;
+    left: 100%;
     width: 10px;
     height: 10px;
-    background: var(--blue-secondary);
-    border: 3px solid var(--platinum);
     border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(127,168,204,0.18);
-    left: 100%;
+    border: 3px solid var(--platinum);
+    background: var(--blue-secondary);
+    box-shadow: 0 0 0 5px rgba(127, 168, 204, 0.18);
     transform: translateX(-50%);
     z-index: 4;
 }
 
-.timeline-item.timeline-item.right::after {
+.timeline-item.right::after {
     left: 0;
 }
 
 /* Animación escalonada */
-.timeline-item:nth-child(1) { animation-delay: 0.2s; }
-.timeline-item:nth-child(2) { animation-delay: 0.35s; }
-.timeline-item:nth-child(3) { animation-delay: 0.5s; }
-.timeline-item:nth-child(4) { animation-delay: 0.65s; }
-.timeline-item:nth-child(5) { animation-delay: 0.8s; }
+.timeline-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
 
+.timeline-item:nth-child(2) {
+    animation-delay: 0.35s;
+}
 
-/* Tablets */
-@media (max-width: 900px) {
+.timeline-item:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+.timeline-item:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+/* Monitores grandes */
+@media (min-width: 1440px) {
     #schedule {
-        padding: 60px 18px 78px;
+        min-height: 100vh;
+        padding: 90px 24px;
     }
 
     #schedule h2 {
-        font-size: 2.5rem;
-        margin-bottom: 42px;
+        font-size: 4.1rem;
+        margin-bottom: 58px;
     }
 
     .timeline {
-        max-width: 720px;
+        max-width: 960px;
     }
 
     .timeline-item {
-        padding: 22px 42px;
+        padding: 22px 66px;
+    }
+
+    .content {
+        max-width: 360px;
+        padding: 24px 28px;
+    }
+
+    .content h3 {
+        font-size: 1.28rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .icon {
+        width: 74px;
+        height: 74px;
+    }
+}
+
+/* Laptops y tablets grandes */
+@media (max-width: 1024px) {
+    #schedule {
+        min-height: 100vh;
+        padding: 72px 18px;
+        background-position: center;
+    }
+
+    #schedule h2 {
+        font-size: 3.2rem;
+        margin-bottom: 44px;
+    }
+
+    .timeline {
+        max-width: 760px;
+    }
+
+    .timeline-item {
+        padding: 18px 48px;
         margin-bottom: 4px;
     }
 
     .content {
-        max-width: 290px;
-        padding: 22px 24px;
+        max-width: 300px;
+        padding: 20px 22px;
+    }
+
+    .content h3 {
+        font-size: 1.08rem;
+    }
+
+    .content p {
+        font-size: 0.9rem;
+        line-height: 1.55;
+    }
+
+    .time,
+    .item {
+        font-size: 0.84rem;
+        margin-bottom: 8px;
     }
 
     .icon {
-        width: 66px;
-        height: 66px;
-        top: 32px;
+        width: 62px;
+        height: 62px;
+        top: 28px;
     }
 
     .timeline-item::after {
-        top: 54px;
+        top: 50px;
     }
 }
 
-/* Tablets pequeñas + móviles */
+/* Tablets pequeñas */
 @media (max-width: 768px) {
     #schedule {
-        padding: 55px 16px 70px;
+        min-height: 100vh;
+        padding: 62px 16px;
     }
 
     #schedule h2 {
-        font-size: 2.2rem;
-        margin-bottom: 36px;
+        font-size: 2.7rem;
+        margin-bottom: 38px;
     }
 
     .timeline {
@@ -237,14 +341,17 @@
     .timeline-item {
         width: 100%;
         left: 0 !important;
-        padding: 0 0 28px 78px;
-        margin-bottom: 8px;
+
+        padding: 0 0 26px 78px;
+        margin-bottom: 6px;
+
         text-align: left !important;
     }
 
     .timeline-item::after {
         left: 30px !important;
-        top: 48px;
+        top: 46px;
+
         transform: translateX(-50%);
     }
 
@@ -257,67 +364,76 @@
     .content {
         width: 100%;
         max-width: none;
-        padding: 21px 22px;
+        padding: 20px 22px;
         border-radius: 20px;
     }
 
     .content h3 {
-        font-size: 1.08rem;
+        font-size: 1.05rem;
     }
 
     .content p {
-        font-size: 0.94rem;
-        line-height: 1.6;
+        font-size: 0.9rem;
+        line-height: 1.55;
     }
 
     .time,
     .item {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
     }
 
     .icon {
-        width: 62px;
-        height: 62px;
-        top: 22px;
+        width: 60px;
+        height: 60px;
+        top: 20px;
     }
 
     .icon img {
-        width: 68%;
-        height: 68%;
+        width: 66%;
+        height: 66%;
     }
 }
 
-/* Celulares */
-@media (max-width: 480px) {
+/* Celulares grandes */
+@media (max-width: 600px) {
     #schedule {
-        padding: 48px 12px 60px;
+        min-height: 100vh;
+        padding: 54px 14px;
+        background-position: center top;
+    }
+
+    #schedule::before {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
     }
 
     #schedule h2 {
-        font-size: 1.95rem;
-        margin-bottom: 30px;
+        font-size: 2.35rem;
+        margin-bottom: 34px;
     }
 
     .timeline::before {
-        left: 24px;
+        left: 26px;
     }
 
     .timeline-item {
-        padding: 0 0 24px 62px;
-        margin-bottom: 6px;
+        padding: 0 0 24px 68px;
+        margin-bottom: 4px;
     }
 
     .timeline-item::after {
-        left: 24px !important;
+        left: 26px !important;
         top: 42px;
-        width: 8px;
-        height: 8px;
+
+        width: 9px;
+        height: 9px;
+
         border-width: 2px;
     }
 
     .timeline-item.left .icon,
     .timeline-item.right .icon {
-        left: -1px;
+        left: -2px;
     }
 
     .content {
@@ -330,71 +446,77 @@
     }
 
     .content h3 {
-        font-size: 0.98rem;
         margin-bottom: 6px;
-        letter-spacing: 1.2px;
+
+        font-size: 0.96rem;
+        letter-spacing: 1.1px;
     }
 
     .content p {
-        font-size: 0.88rem;
-        line-height: 1.55;
+        font-size: 0.84rem;
+        line-height: 1.5;
     }
 
     .time,
     .item {
-        font-size: 0.8rem;
         margin-bottom: 8px;
+        font-size: 0.78rem;
+    }
+
+    .icon {
+        width: 54px;
+        height: 54px;
+        top: 19px;
+
+        box-shadow:
+            0 8px 18px rgba(28, 43, 72, 0.2),
+            0 0 0 5px rgba(255, 255, 255, 0.18);
+    }
+}
+
+/* Celulares normales */
+@media (max-width: 480px) {
+    #schedule {
+        min-height: 100vh;
+        padding: 48px 12px;
+    }
+
+    #schedule h2 {
+        font-size: 2.05rem;
+        margin-bottom: 30px;
+    }
+
+    .timeline::before {
+        left: 24px;
+    }
+
+    .timeline-item {
+        padding: 0 0 22px 62px;
+        margin-bottom: 4px;
+    }
+
+    .timeline-item::after {
+        left: 24px !important;
+        top: 39px;
+
+        width: 8px;
+        height: 8px;
+    }
+
+    .timeline-item.left .icon,
+    .timeline-item.right .icon {
+        left: -1px;
     }
 
     .icon {
         width: 50px;
         height: 50px;
-        top: 22px;
-        box-shadow: 0 8px 18px rgba(28, 43, 72, 0.2);
-    }
-
-    .icon img {
-        width: 66%;
-        height: 66%;
-    }
-}
-
-/* Celulares muy pequeños */
-@media (max-width: 360px) {
-    #schedule {
-        padding: 44px 10px 55px;
-    }
-
-    #schedule h2 {
-        font-size: 1.75rem;
-    }
-
-    .timeline::before {
-        left: 20px;
-    }
-
-    .timeline-item {
-        padding-left: 56px;
-    }
-
-    .timeline-item::after {
-        left: 20px !important;
-        top: 39px;
-    }
-
-    .timeline-item.left .icon,
-    .timeline-item.right .icon {
-        left: -2px;
-    }
-
-    .icon {
-        width: 44px;
-        height: 44px;
-        top: 21px;
+        top: 18px;
     }
 
     .content {
-        padding: 16px 14px;
+        padding: 16px 15px;
+        border-radius: 17px;
     }
 
     .content h3 {
@@ -402,6 +524,156 @@
     }
 
     .content p {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
+        line-height: 1.45;
+    }
+
+    .time,
+    .item {
+        font-size: 0.74rem;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 390px) {
+    #schedule {
+        min-height: 100vh;
+        padding: 42px 10px;
+    }
+
+    #schedule h2 {
+        font-size: 1.85rem;
+        margin-bottom: 26px;
+    }
+
+    .timeline::before {
+        left: 22px;
+    }
+
+    .timeline-item {
+        padding-left: 58px;
+        padding-bottom: 20px;
+    }
+
+    .timeline-item::after {
+        left: 22px !important;
+        top: 36px;
+    }
+
+    .timeline-item.left .icon,
+    .timeline-item.right .icon {
+        left: -1px;
+    }
+
+    .icon {
+        width: 46px;
+        height: 46px;
+        top: 17px;
+    }
+
+    .content {
+        padding: 14px 13px;
+        border-radius: 16px;
+    }
+
+    .content h3 {
+        font-size: 0.84rem;
+        letter-spacing: 0.9px;
+    }
+
+    .content p {
+        font-size: 0.76rem;
+    }
+
+    .time,
+    .item {
+        font-size: 0.7rem;
+    }
+}
+
+/* Galaxy Fold y pantallas angostas */
+@media (max-width: 340px) {
+    #schedule {
+        min-height: 100vh;
+        padding: 36px 8px;
+    }
+
+    #schedule h2 {
+        font-size: 1.65rem;
+        margin-bottom: 22px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 54px;
+        padding-bottom: 18px;
+    }
+
+    .timeline-item::after {
+        left: 20px !important;
+        top: 34px;
+    }
+
+    .icon {
+        width: 42px;
+        height: 42px;
+        top: 16px;
+    }
+
+    .content {
+        padding: 13px 11px;
+        border-radius: 15px;
+    }
+
+    .content h3 {
+        font-size: 0.78rem;
+        letter-spacing: 0.8px;
+    }
+
+    .content p {
+        font-size: 0.7rem;
+        line-height: 1.4;
+    }
+
+    .time,
+    .item {
+        font-size: 0.66rem;
+    }
+}
+
+/* Pantallas extremadamente angostas */
+@media (max-width: 300px) {
+    #schedule {
+        padding: 32px 6px;
+    }
+
+    #schedule h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 48px;
+        padding-bottom: 16px;
+    }
+
+    .icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .content {
+        padding: 12px 10px;
+    }
+
+    .content h3 {
+        font-size: 0.72rem;
+    }
+
+    .content p {
+        font-size: 0.66rem;
     }
 }

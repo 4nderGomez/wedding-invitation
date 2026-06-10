@@ -1,27 +1,49 @@
 #dressCode {
-    padding: 75px 20px 85px;
-    background: var(--blue-grey);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: clamp(54px, 7vh, 86px) 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(
+            rgba(180, 203, 235, 0.44),
+            rgba(180, 203, 235, 0.58)
+        ),
+        url("../assets/images/background/1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#dressCode::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(247, 250, 253, 0.18) 0%,
+            rgba(180, 203, 235, 0.12) 45%,
+            rgba(28, 43, 72, 0.10) 100%
+        );
+    pointer-events: none;
+    z-index: 1;
 }
 
 .dress-card {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 1100px;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
-    gap: 40px;
-    padding: 55px 50px;
-    border-radius: 36px;
-    background: rgba(247,250,253,0.72);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.55);
-    box-shadow:
-        0 24px 60px rgba(36,59,90,0.10),
-        0 4px 16px rgba(255,255,255,0.18);
-    overflow: hidden;
-    position: relative;
+    gap: 44px;
+    padding: clamp(36px, 6vh, 58px) 50px;
+    overflow: visible;
 }
 
 /* Imagen */
@@ -33,9 +55,11 @@
 
 .dress-image img {
     width: 100%;
-    max-width: 270px;
+    max-width: 285px;
     object-fit: contain;
-    filter: drop-shadow(0 20px 35px rgba(36,59,90,0.14));
+    filter:
+        drop-shadow(0 20px 35px rgba(36, 59, 90, 0.18))
+        drop-shadow(0 0 18px rgba(255, 255, 255, 0.28));
     transition:
         transform 0.45s ease,
         filter 0.45s ease;
@@ -53,19 +77,25 @@
 }
 
 .dress-info h2 {
-    font-family: var(--font-script);
-    font-size: clamp(2.8rem, 4vw, 3.8rem);
-    color: var(--blue-primary);
     margin-bottom: 16px;
+    font-family: var(--font-title);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--blue-primary);
+    text-shadow:
+        0 8px 24px rgba(255, 255, 255, 0.5),
+        0 3px 12px rgba(36, 59, 90, 0.14);
 }
 
 .dress-description {
+    max-width: 500px;
+    margin-bottom: 38px;
     font-family: var(--font-body);
     font-size: 1.08rem;
     line-height: 1.8;
-    color: var(--text-secondary);
-    margin-bottom: 38px;
-    max-width: 480px;
+    color: var(--blue-primary);
+    text-shadow: 0 4px 16px rgba(255, 255, 255, 0.42);
 }
 
 /* Colores */
@@ -73,6 +103,7 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
+    max-width: 460px;
 }
 
 /* Item */
@@ -80,183 +111,425 @@
     display: flex;
     align-items: center;
     gap: 18px;
-    padding: 16px 18px;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.45);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.55);
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: transform 0.35s ease;
 }
 
 .dress-color-item:hover {
     transform: translateX(8px);
-
-    box-shadow:
-        0 12px 24px rgba(36,59,90,0.10),
-        0 2px 10px rgba(255,255,255,0.18);
 }
 
 /* Círculo */
 .dress-color-circle {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.9);
-    box-shadow:
-        0 6px 14px rgba(0,0,0,0.12),
-        inset 0 2px 4px rgba(255,255,255,0.35);
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 8px 18px rgba(36, 59, 90, 0.22),
+        inset 0 2px 4px rgba(255, 255, 255, 0.35);
 }
 
 /* Blanco */
 .dress-color-item:nth-child(1) .dress-color-circle {
-    border: 1px solid rgba(180,180,180,0.45);
+    border: 1px solid rgba(120, 140, 160, 0.5);
 }
 
 /* Texto */
 .dress-color-item p {
     font-family: var(--font-body);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.4px;
+    color: var(--blue-primary);
+
+    text-shadow:
+        0 3px 12px rgba(255, 255, 255, 0.55),
+        0 1px 4px rgba(255, 255, 255, 0.5);
+}
+
+@import 'calendar.css';
+@import 'modal.css';
+
+#rsvp-container {
+    position: relative;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    background:
+        linear-gradient(
+            rgba(180, 203, 235, 0.74),
+            rgba(180, 203, 235, 0.84)
+        ),
+        url("../assets/images/background/17.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.rsvp-wrapper {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    max-width: 1180px;
+    width: 100%;
+    gap: 24px;
+    padding: 35px;
+}
+
+/* Izquierda */
+.rsvp-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Derecha */
+.rsvp-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rsvp-right > div {
+    width: 100%;
+    max-width: 520px;
+    min-height: 500px;
+    padding: 42px 34px;
+    border-radius: 26px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 20px 45px rgba(36, 59, 90, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+    align-items: center;
+    text-align: center;
+    animation: fadeUp 0.6s ease;
+}
+
+/* Decisión */
+#rsvp-decision {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+#rsvp-decision h2 {
+    font-family: var(--font-title);
     color: var(--blue-primary);
 }
 
-/* Decoración */
-.dress-card::before {
-    content: "";
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    background: rgba(180,203,235,0.12);
-    top: -120px;
-    right: -80px;
-    pointer-events: none;
+#attendanceDecision {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    box-shadow: 0 10px 25px var(--shadow-soft);
 }
 
-.dress-card::after {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: rgba(22,42,69,0.05);
-    bottom: -90px;
-    left: -60px;
-    pointer-events: none;
+#confirmDecisionBtn {
+    width: 100%;
 }
 
-/* Tablets */
-@media (max-width: 900px) {
+#declineSection {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    animation: fadeUp 0.6s ease;
+}
 
-    #dressCode {
-        padding: 65px 18px 75px;
+#declineSection h3 {
+    font-family: var(--font-title);
+    color: var(--blue-primary);
+}
+
+#declineForm {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+#declineForm input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#declineForm select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+#declineForm button {
+    margin-top: 10px;
+}
+
+.back-btn {
+    align-self: flex-end;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--blue-primary);
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: scale(0.8);
+    color: var(--blue-accent);
+}
+
+/* Ocultando cosas */
+.hidden {
+    display: none !important;
+}
+
+.rsvp-deadline-note,
+.decline-warning-note {
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(255, 245, 245, 0.82);
+    border: 1px solid rgba(190, 55, 55, 0.22);
+    box-shadow: 0 12px 28px rgba(190, 55, 55, 0.07);
+}
+
+.rsvp-deadline-note strong,
+.decline-warning-note strong {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-title);
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.7px;
+    color: #a33232;
+}
+
+.rsvp-deadline-note p,
+.decline-warning-note p {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: #8f2d2d;
+    text-align: justify;
+}
+
+.rsvp-deadline-note span {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+
+    .rsvp-wrapper {
+        grid-template-columns: 1fr;
+        padding: 25px;
     }
 
-    .dress-card {
+    .rsvp-left {
+        margin-bottom: 20px;
+    }
+
+    .rsvp-right > div {
+        max-width: 100%;
+    }
+}
+
+/* Tablets grandes */
+@media (max-width: 1024px) {
+    #rsvp-container {
+        padding: 90px 18px;
+    }
+
+    .rsvp-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 760px;
         gap: 28px;
-        padding: 45px 35px;
+        padding: 32px;
     }
 
-    .dress-image img {
-        max-width: 230px;
+    .rsvp-left {
+        padding: 0;
+        margin-bottom: 5px;
     }
 
-    .dress-info h2 {
-        font-size: 3rem;
+    .rsvp-right > div {
+        max-width: 100%;
+        min-height: auto;
+        padding: 42px 34px;
     }
 }
 
 /* Tablets pequeñas */
-@media (max-width: 768px) {
-
-    .dress-card {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        gap: 36px;
-
-        padding: 42px 28px;
+@media (max-width: 850px) {
+    #rsvp-container {
+        padding: 75px 16px;
     }
 
-    .dress-info {
-        align-items: center;
+    .rsvp-wrapper {
+        max-width: 650px;
+        padding: 28px;
+        border-radius: 28px;
     }
 
-    .dress-description {
-        margin-bottom: 30px;
+    #rsvp-decision h2 {
+        font-size: clamp(1.8rem, 5vw, 2.4rem);
     }
 
-    .dress-colors {
-        width: 100%;
-        max-width: 420px;
-    }
-
-    .dress-color-item:hover {
-        transform: translateY(-4px);
-    }
-
-    .dress-image img {
-        max-width: 220px;
+    #declineSection h3 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
     }
 }
 
 /* Celulares */
-@media (max-width: 480px) {
-
-    #dressCode {
-        padding: 55px 12px 65px;
+@media (max-width: 600px) {
+    #rsvp-container {
+        padding: 60px 14px;
     }
 
-    .dress-card {
-        padding: 34px 20px;
-        border-radius: 28px;
+    .rsvp-wrapper {
+        padding: 22px;
+        gap: 22px;
+        border-radius: 24px;
     }
 
-    .dress-image img {
-        max-width: 180px;
+    .rsvp-left {
+        margin-bottom: 0;
     }
 
-    .dress-info h2 {
-        font-size: 2.5rem;
+    .rsvp-right > div {
+        padding: 34px 22px;
+        border-radius: 22px;
+        gap: 18px;
     }
 
-    .dress-description {
+    #rsvp-decision {
+        gap: 18px;
+    }
+
+    #rsvp-decision h2 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    #attendanceDecision,
+    #declineForm input,
+    #declineForm select {
+        padding: 13px 12px;
         font-size: 0.95rem;
-        line-height: 1.7;
     }
 
-    .dress-color-item {
+    #confirmDecisionBtn,
+    #declineForm button {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    #declineSection {
         gap: 14px;
-        padding: 14px 14px;
     }
 
-    .dress-color-circle {
-        width: 34px;
-        height: 34px;
+    #declineForm {
+        max-width: 100%;
+        gap: 12px;
     }
 
-    .dress-color-item p {
-        font-size: 0.92rem;
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .back-btn {
+        top: 12px;
+        right: 12px;
+        font-size: 16px;
     }
 }
 
 /* Celulares pequeños */
-@media (max-width: 360px) {
-
-    .dress-card {
-        padding: 30px 16px;
+@media (max-width: 390px) {
+    #rsvp-container {
+        padding: 50px 10px;
     }
 
-    .dress-info h2 {
-        font-size: 2.2rem;
+    .rsvp-wrapper {
+        padding: 16px;
+        border-radius: 22px;
     }
 
-    .dress-image img {
-        max-width: 160px;
+    .rsvp-right > div {
+        padding: 32px 16px;
+        border-radius: 20px;
+    }
+
+    #rsvp-decision h2 {
+        font-size: 1.55rem;
+    }
+
+    #declineSection h3 {
+        font-size: 1.35rem;
+        line-height: 1.25;
+    }
+
+    #attendanceDecision,
+    #declineForm input,
+    #declineForm select {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .rsvp-deadline-note,
+    .decline-warning-note {
+        margin-top: 14px;
+        padding: 13px 14px;
+    }
+
+    .rsvp-deadline-note strong,
+    .decline-warning-note strong {
+        font-size: 0.9rem;
+    }
+
+    .rsvp-deadline-note p,
+    .decline-warning-note p {
+        font-size: 0.8rem;
     }
 }

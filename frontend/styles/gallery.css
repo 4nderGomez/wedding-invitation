@@ -1,27 +1,64 @@
 #gallery {
-    padding: 75px clamp(18px, 3vw, 48px) 65px;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: clamp(54px, 7vh, 86px) clamp(18px, 3vw, 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    background: var(--blue-grey);
     overflow: hidden;
+    background:
+        linear-gradient(
+            rgba(180, 203, 235, 0.58),
+            rgba(180, 203, 235, 0.68)
+        ),
+        url("../assets/images/background/14.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#gallery::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(247, 250, 253, 0.34) 0%,
+            rgba(180, 203, 235, 0.25) 45%,
+            rgba(28, 43, 72, 0.16) 100%
+        );
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#gallery h2,
+.gallery-wrapper {
+    position: relative;
+    z-index: 2;
 }
 
 #gallery h2 {
-    margin-bottom: 42px;
-    text-align: center;
-    font-family: var(--font-body);
-    font-size: 3rem;
+    margin-bottom: clamp(28px, 4vh, 46px);
+    font-family: var(--font-title);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
     color: var(--blue-primary);
+    text-shadow:
+        0 8px 24px rgba(255, 255, 255, 0.45),
+        0 3px 12px rgba(36, 59, 90, 0.12);
 }
 
-/* Fotos
-    -> Movimiento
-    -> Pausa del hover
-    -> Imagenes
-    -> Hover zoom*/
+/* Contenedor del carrusel */
 .gallery-wrapper {
-    overflow: visible;
-    position: relative;
     width: 100%;
+    overflow: visible;
 }
 
 .gallery-wrapper::before {
@@ -39,11 +76,12 @@
 }
 
 .gallery-viewport {
+    width: 100%;
     overflow-x: auto;
     overflow-y: visible;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    padding: 0 8px 30px;
+    padding: 0 8px 34px;
 }
 
 .gallery-viewport::-webkit-scrollbar {
@@ -59,19 +97,24 @@
 }
 
 .gallery-track img {
+    position: relative;
+    z-index: 1;
     width: 360px;
     height: 430px;
-    position: relative;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 15px 35px var(--shadow-soft);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    z-index: 1;
+    box-shadow:
+        0 18px 42px rgba(36, 59, 90, 0.22),
+        0 0 0 1px rgba(255, 255, 255, 0.28);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        filter 0.4s ease;
 }
 
 .gallery-track img:hover {
-    transform: scale(1.3);
     z-index: 10;
+    transform: scale(1.3);
     filter: brightness(1.04);
 }
 
@@ -94,7 +137,10 @@
     box-shadow: 0 12px 28px rgba(36, 59, 90, 0.18);
     cursor: pointer;
     z-index: 20;
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .gallery-arrow:hover {
@@ -128,13 +174,15 @@
 .image-modal-overlay {
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(10px);
     background: rgba(28, 43, 72, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1;
 }
 
 .image-modal img {
     position: relative;
+    z-index: 2;
     width: auto;
     height: auto;
     max-width: min(88vw, 760px);
@@ -143,7 +191,6 @@
     border-radius: 20px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
     animation: zoomIn 0.3s ease;
-    z-index: 2;
 }
 
 .image-modal-close {
@@ -194,19 +241,39 @@
     right: clamp(14px, 4vw, 70px);
 }
 
-/* Tablets grandes */
-@media (max-width: 1024px) {
+/* Monitores grandes */
+@media (min-width: 1440px) {
     #gallery {
-        padding: 65px clamp(16px, 3vw, 34px) 60px;
+        min-height: 100vh;
+        padding: 90px clamp(24px, 4vw, 60px);
     }
 
     #gallery h2 {
-        font-size: 2.7rem;
+        font-size: 4.1rem;
+        margin-bottom: 48px;
+    }
+
+    .gallery-track img {
+        width: 390px;
+        height: 460px;
+    }
+}
+
+/* Laptops y tablets grandes */
+@media (max-width: 1024px) {
+    #gallery {
+        min-height: 100vh;
+        padding: 68px clamp(16px, 3vw, 34px);
+        background-position: center;
+    }
+
+    #gallery h2 {
+        font-size: 3.2rem;
         margin-bottom: 36px;
     }
 
     .gallery-viewport {
-        padding: 0 6px 28px;
+        padding: 0 6px 30px;
     }
 
     .gallery-track {
@@ -270,16 +337,17 @@
 /* Tablets pequeñas */
 @media (max-width: 768px) {
     #gallery {
-        padding: 58px 14px 52px;
+        min-height: 100vh;
+        padding: 62px 14px;
     }
 
     #gallery h2 {
-        font-size: 2.4rem;
+        font-size: 2.7rem;
         margin-bottom: 30px;
     }
 
     .gallery-viewport {
-        padding: 0 4px 26px;
+        padding: 0 4px 28px;
     }
 
     .gallery-track {
@@ -349,16 +417,23 @@
 /* Celulares grandes */
 @media (max-width: 600px) {
     #gallery {
-        padding: 52px 12px 48px;
+        min-height: 100vh;
+        padding: 56px 12px;
+        background-position: center top;
+    }
+
+    #gallery::before {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
     }
 
     #gallery h2 {
-        font-size: 2.15rem;
+        font-size: 2.35rem;
         margin-bottom: 26px;
     }
 
     .gallery-viewport {
-        padding: 0 2px 24px;
+        padding: 0 2px 26px;
     }
 
     .gallery-track {
@@ -401,6 +476,7 @@
 
     .image-modal-overlay {
         backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
     }
 
     .image-modal img {
@@ -435,11 +511,12 @@
 /* Celulares normales */
 @media (max-width: 480px) {
     #gallery {
-        padding: 48px 10px 45px;
+        min-height: 100vh;
+        padding: 50px 10px;
     }
 
     #gallery h2 {
-        font-size: 2rem;
+        font-size: 2.05rem;
         margin-bottom: 24px;
     }
 
@@ -453,13 +530,6 @@
         height: 245px;
         border-radius: 14px;
         box-shadow: 0 10px 22px rgba(36, 59, 90, 0.16);
-    }
-
-    .gallery-wrapper::before {
-        width: 8px;
-        height: 8px;
-        bottom: 8px;
-        opacity: 0.45;
     }
 
     .gallery-arrow {
@@ -500,7 +570,8 @@
 /* Celulares pequeños */
 @media (max-width: 390px) {
     #gallery {
-        padding: 44px 8px 42px;
+        min-height: 100vh;
+        padding: 44px 8px;
     }
 
     #gallery h2 {
@@ -554,14 +625,15 @@
     }
 }
 
-/* Galaxy Fold, plegables angostos y celulares muy pequeños */
+/* Galaxy Fold y pantallas angostas */
 @media (max-width: 340px) {
     #gallery {
-        padding: 40px 6px 38px;
+        min-height: 100vh;
+        padding: 38px 6px;
     }
 
     #gallery h2 {
-        font-size: 1.7rem;
+        font-size: 1.65rem;
         margin-bottom: 20px;
     }
 
@@ -629,14 +701,14 @@
     }
 }
 
-/* Galaxy Fold cerrado y pantallas extremadamente angostas */
+/* Pantallas extremadamente angostas */
 @media (max-width: 300px) {
     #gallery {
-        padding: 36px 5px 34px;
+        padding: 32px 5px;
     }
 
     #gallery h2 {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
         margin-bottom: 18px;
     }
 

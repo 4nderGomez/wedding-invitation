@@ -2,30 +2,22 @@
     position: fixed;
     right: 26px;
     bottom: 26px;
-
     width: 58px;
     height: 58px;
-
     border: 1px solid rgba(255, 255, 255, 0.42);
     border-radius: 50%;
-
     display: none;
     align-items: center;
     justify-content: center;
-
     color: var(--blue-primary);
     background: rgba(255, 255, 255, 0.34);
-
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
     box-shadow:
         0 16px 36px rgba(36, 59, 90, 0.24),
         inset 0 0 0 1px rgba(255, 255, 255, 0.28);
-
     cursor: pointer;
     z-index: 99999;
-
     font-size: 1.15rem;
     transition:
         background 0.25s ease,
