@@ -98,15 +98,11 @@
 .save-date-video-frame {
     width: min(100%, 820px);
     padding: 12px;
-
     border-radius: 34px;
     border: 1px solid rgba(255, 255, 255, 0.58);
-
     background: rgba(247, 250, 253, 0.34);
-
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
     box-shadow:
         0 26px 68px rgba(36, 59, 90, 0.18),
         inset 0 0 0 1px rgba(255, 255, 255, 0.2);
@@ -114,55 +110,232 @@
 
 .save-date-video-frame video {
     width: 100%;
+    height: auto;
     display: block;
-
     border-radius: 24px;
-
     background: rgba(28, 43, 72, 0.12);
-
     box-shadow: 0 16px 38px rgba(36, 59, 90, 0.16);
+}
+
+@media (max-width: 1024px) {
+    .save-the-date-section {
+        padding: 72px 18px 82px;
+        background-position: center;
+    }
+
+    .save-date-content {
+        max-width: 880px;
+    }
+
+    .save-date-content h2 {
+        font-size: clamp(3.2rem, 7vw, 4.8rem);
+    }
+
+    .save-date-content p {
+        max-width: 540px;
+        margin-bottom: 30px;
+        font-size: 0.98rem;
+    }
+
+    .save-date-video-frame {
+        width: min(100%, 760px);
+        padding: 11px;
+        border-radius: 30px;
+    }
+
+    .save-date-video-frame video {
+        border-radius: 22px;
+    }
 }
 
 @media (max-width: 768px) {
     .save-the-date-section {
-        padding: 64px 16px 74px;
+        min-height: 100vh;
+        padding: 66px 16px 76px;
+
+        background:
+            linear-gradient(
+                rgba(180, 203, 235, 0.64),
+                rgba(180, 203, 235, 0.78)
+            ),
+            url("../assets/images/background/2.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .save-date-overlay {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+
+    .save-date-content {
+        max-width: 640px;
+    }
+
+    .save-date-label {
+        margin-bottom: 8px;
+        font-size: 0.72rem;
+        letter-spacing: 3.5px;
     }
 
     .save-date-content h2 {
-        font-size: clamp(2.8rem, 13vw, 4.3rem);
+        margin-bottom: 14px;
+        font-size: clamp(3rem, 12vw, 4.4rem);
+        line-height: 0.95;
     }
 
     .save-date-content p {
+        max-width: 500px;
         margin-bottom: 28px;
         font-size: 0.94rem;
         line-height: 1.7;
     }
 
     .save-date-video-frame {
+        width: min(100%, 620px);
         padding: 9px;
-        border-radius: 26px;
+        border-radius: 28px;
+
+        background: rgba(247, 250, 253, 0.38);
+
+        box-shadow:
+            0 22px 54px rgba(36, 59, 90, 0.16),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     }
 
     .save-date-video-frame video {
-        border-radius: 18px;
+        border-radius: 20px;
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 600px) {
     .save-the-date-section {
-        padding: 58px 12px 66px;
+        padding: 58px 14px 68px;
+    }
+
+    .save-date-content {
+        max-width: 100%;
     }
 
     .save-date-label {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
         letter-spacing: 3px;
     }
 
+    .save-date-content h2 {
+        margin-bottom: 12px;
+        font-size: clamp(2.75rem, 15vw, 4rem);
+    }
+
     .save-date-content p {
-        font-size: 0.88rem;
+        max-width: 360px;
+        margin-bottom: 24px;
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+
+    .save-date-video-frame {
+        width: 100%;
+        padding: 8px;
+        border-radius: 24px;
+
+        background: rgba(247, 250, 253, 0.42);
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .save-date-video-frame video {
+        border-radius: 17px;
+    }
+}
+
+@media (max-width: 430px) {
+    .save-the-date-section {
+        padding: 54px 12px 62px;
+    }
+
+    .save-date-content h2 {
+        font-size: clamp(2.55rem, 16vw, 3.55rem);
+    }
+
+    .save-date-content p {
+        max-width: 320px;
+        margin-bottom: 22px;
+        font-size: 0.86rem;
+        line-height: 1.62;
     }
 
     .save-date-video-frame {
         padding: 7px;
+        border-radius: 22px;
+    }
+
+    .save-date-video-frame video {
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .save-the-date-section {
+        padding: 48px 10px 56px;
+    }
+
+    .save-date-label {
+        font-size: 0.64rem;
+        letter-spacing: 2.5px;
+    }
+
+    .save-date-content h2 {
+        font-size: 2.35rem;
+    }
+
+    .save-date-content p {
+        max-width: 295px;
+        font-size: 0.82rem;
+        line-height: 1.58;
+    }
+
+    .save-date-video-frame {
+        padding: 6px;
+        border-radius: 20px;
+    }
+
+    .save-date-video-frame video {
+        border-radius: 14px;
+    }
+}
+
+@media (max-height: 620px) and (orientation: landscape) {
+    .save-the-date-section {
+        padding: 42px 16px;
+    }
+
+    .save-date-label {
+        margin-bottom: 6px;
+    }
+
+    .save-date-content h2 {
+        margin-bottom: 8px;
+        font-size: clamp(2.3rem, 7vw, 3.2rem);
+    }
+
+    .save-date-content p {
+        max-width: 520px;
+        margin-bottom: 16px;
+        font-size: 0.82rem;
+        line-height: 1.5;
+    }
+
+    .save-date-video-frame {
+        width: min(100%, 560px);
+        padding: 7px;
+        border-radius: 22px;
+    }
+
+    .save-date-video-frame video {
+        border-radius: 15px;
     }
 }

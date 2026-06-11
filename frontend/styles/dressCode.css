@@ -169,15 +169,311 @@
         0 1px 4px rgba(255, 255, 255, 0.5);
 }
 
+/* Tablets grandes */
+@media (max-width: 1024px) {
+    #dressCode {
+        padding: 72px 18px 82px;
+        background-position: center;
+    }
+
+    .dress-card {
+        max-width: 940px;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 34px;
+        padding: 40px 34px;
+    }
+
+    .dress-image img {
+        max-width: 255px;
+    }
+
+    .dress-info {
+        padding: 26px 30px;
+    }
+
+    .dress-description {
+        max-width: 470px;
+        margin-bottom: 32px;
+        font-size: 1rem;
+        line-height: 1.72;
+    }
+
+    .dress-colors {
+        gap: 20px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 850px) {
+    #dressCode {
+        min-height: 100vh;
+        padding: 68px 16px 78px;
+
+        background:
+            linear-gradient(
+                rgba(180, 203, 235, 0.52),
+                rgba(180, 203, 235, 0.66)
+            ),
+            url("../assets/images/background/1.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .dress-card {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding: 34px 24px;
+        text-align: center;
+    }
+
+    .dress-image {
+        order: 1;
+    }
+
+    .dress-info {
+        order: 2;
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+        padding: 28px 26px;
+    }
+
+    .dress-info h2 {
+        margin-bottom: 14px;
+        font-size: clamp(2.7rem, 8vw, 3.8rem);
+    }
+
+    .dress-description {
+        max-width: 520px;
+        margin: 0 auto 30px;
+        font-size: 0.98rem;
+        line-height: 1.68;
+    }
+
+    .dress-colors {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        gap: 18px;
+    }
+
+    .dress-color-item {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .dress-image img {
+        max-width: 230px;
+    }
+}
+
+/* Celulares */
 @media (max-width: 600px) {
+    #dressCode {
+        padding: 58px 14px 68px;
+
+        background:
+            linear-gradient(
+                rgba(180, 203, 235, 0.58),
+                rgba(180, 203, 235, 0.72)
+            ),
+            url("../assets/images/background/1.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #dressCode::before {
+        background:
+            radial-gradient(
+                circle at center,
+                rgba(247, 250, 253, 0.22) 0%,
+                rgba(180, 203, 235, 0.16) 45%,
+                rgba(28, 43, 72, 0.12) 100%
+            );
+    }
+
+    .dress-card {
+        gap: 22px;
+        padding: 26px 16px;
+    }
+
+    .dress-image img {
+        max-width: 200px;
+        filter:
+            drop-shadow(0 16px 28px rgba(36, 59, 90, 0.16))
+            drop-shadow(0 0 14px rgba(255, 255, 255, 0.24));
+    }
+
     .dress-info {
         padding: 24px 18px;
         border-radius: 24px;
     }
 
     .dress-info::before {
-        background: rgba(247, 250, 253, 0.12);
+        background: rgba(247, 250, 253, 0.14);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .dress-info h2 {
+        margin-bottom: 12px;
+        font-size: clamp(2.45rem, 13vw, 3.4rem);
+    }
+
+    .dress-description {
+        max-width: 350px;
+        margin-bottom: 26px;
+        font-size: 0.9rem;
+        line-height: 1.62;
+    }
+
+    .dress-colors {
+        gap: 16px;
+    }
+
+    .dress-color-item {
+        gap: 14px;
+    }
+
+    .dress-color-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dress-color-item p {
+        font-size: 0.92rem;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 430px) {
+    #dressCode {
+        padding: 54px 10px 62px;
+    }
+
+    .dress-card {
+        gap: 20px;
+        padding: 22px 10px;
+    }
+
+    .dress-image img {
+        max-width: 178px;
+    }
+
+    .dress-info {
+        padding: 22px 14px;
+        border-radius: 22px;
+    }
+
+    .dress-info h2 {
+        font-size: clamp(2.25rem, 14vw, 3rem);
+    }
+
+    .dress-description {
+        max-width: 310px;
+        margin-bottom: 24px;
+        font-size: 0.84rem;
+        line-height: 1.58;
+    }
+
+    .dress-colors {
+        gap: 14px;
+    }
+
+    .dress-color-circle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .dress-color-item p {
+        font-size: 0.86rem;
+    }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 360px) {
+    #dressCode {
+        padding: 48px 8px 56px;
+    }
+
+    .dress-image img {
+        max-width: 158px;
+    }
+
+    .dress-info {
+        padding: 20px 12px;
+    }
+
+    .dress-info h2 {
+        font-size: 2.15rem;
+    }
+
+    .dress-description {
+        max-width: 285px;
+        font-size: 0.8rem;
+        line-height: 1.52;
+    }
+
+    .dress-color-circle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .dress-color-item {
+        gap: 12px;
+    }
+
+    .dress-color-item p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Pantallas bajas / celular horizontal */
+@media (max-height: 620px) and (orientation: landscape) {
+    #dressCode {
+        padding: 42px 16px;
+    }
+
+    .dress-card {
+        grid-template-columns: 0.75fr 1.25fr;
+        gap: 26px;
+        padding: 24px 28px;
+    }
+
+    .dress-image img {
+        max-width: 180px;
+    }
+
+    .dress-info {
+        padding: 20px 24px;
+    }
+
+    .dress-info h2 {
+        margin-bottom: 8px;
+        font-size: clamp(2.2rem, 6vw, 3rem);
+    }
+
+    .dress-description {
+        margin-bottom: 18px;
+        font-size: 0.82rem;
+        line-height: 1.48;
+    }
+
+    .dress-colors {
+        gap: 12px;
+    }
+
+    .dress-color-circle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .dress-color-item p {
+        font-size: 0.82rem;
     }
 }

@@ -16,16 +16,6 @@ export function initSaveTheDate() {
         }
     });
 
-    saveTheDateVideo.addEventListener("pause", async () => {
-        if (!pageAudio || !audioWasPlayingBeforeVideo) return;
-
-        try {
-            await pageAudio.play();
-        } catch (error) {
-            audioWasPlayingBeforeVideo = false;
-        }
-    });
-
     saveTheDateVideo.addEventListener("ended", async () => {
         if (!pageAudio || !audioWasPlayingBeforeVideo) return;
 
