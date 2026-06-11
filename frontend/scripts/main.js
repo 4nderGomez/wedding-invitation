@@ -1,5 +1,6 @@
 import { initIntroExperience } from './introExperience.js';
 import { initFloatingMenu } from './floatingMenu.js';
+import { initSaveTheDate } from './saveTheDate.js';
 import { initCountdown } from './countdown.js';
 import { initGalleryModal } from './gallery.js';
 import { initGifts } from './gifts.js';
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initIntroExperience();
     initCountdown();
     initGalleryModal();
+    initSaveTheDate();
     initGifts();
     initModal();
     initDynamicFields();

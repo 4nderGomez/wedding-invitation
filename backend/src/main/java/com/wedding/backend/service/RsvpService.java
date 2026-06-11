@@ -4,7 +4,6 @@ import com.wedding.backend.entity.Rsvp;
 import com.wedding.backend.entity.Guest;
 import com.wedding.backend.repository.RsvpRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,8 +12,11 @@ import java.util.Optional;
 @Service
 public class RsvpService {
     
-    @Autowired
-    private RsvpRepository rsvpRepository;
+    private final RsvpRepository rsvpRepository;
+
+    RsvpService(RsvpRepository rsvpRepository) {
+        this.rsvpRepository = rsvpRepository;
+    }
 
     public Rsvp saveRsvp(Rsvp rsvp) {
         //Normalizar datos

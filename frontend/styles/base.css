@@ -20,14 +20,11 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-
     font-family: var(--font-body);
     color: var(--text-primary);
     line-height: 1.6;
-
     -webkit-font-smoothing: antialiased;
     background: var(--blue-grey);
-
     overflow-x: hidden;
 }
 
@@ -193,12 +190,14 @@ textarea:focus {
 }
 
 #hero,
+#saveTheDate,
 #countdown,
 #weddingWords,
 #gallery,
 #schedule,
 #eventInfo,
 #dressCode,
+#gifts,
 #rsvp-container,
 footer {
     scroll-snap-align: start;

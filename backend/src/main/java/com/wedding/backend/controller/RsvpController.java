@@ -21,11 +21,15 @@ import java.util.List;
 })
 
 public class RsvpController {
-    @Autowired
-    private RsvpService rsvpService;
+    private final RsvpService rsvpService;
 
     @Autowired
     private RsvpRepository rsvpRepository;
+
+    RsvpController(RsvpService rsvpService, RsvpRepository rsvpRepository) {
+        this.rsvpService = rsvpService;
+        this.rsvpRepository = rsvpRepository;
+    }
 
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody Rsvp rsvp) {
